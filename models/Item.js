@@ -2,10 +2,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true,
+  },
   brand: String,
   description: String,
-  image: String,
+  image: {
+    type: String,
+    default: "https://www.eglsf.info/wp-content/uploads/image-missing.png",
+  },
   price: Number,
   link: String,
   user: { type: Schema.Types.ObjectId, ref: "user" },
