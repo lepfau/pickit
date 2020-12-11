@@ -1,6 +1,6 @@
 require("dotenv").config();
 require("./../config/mongo"); // fetch the db connection
-const ArtistModel = require("./../model/Item");
+const ItemModel = require("./../models/Item");
 
 
 
@@ -40,9 +40,9 @@ const items  = [
 
 async function insertItems() {
     try {
-      await itemSchema.deleteMany(); // empty the styles db collection
-      const inserted = await itemSchema.insertMany(artists); // insert docs in db
-      console.log(`seed artists done : ${inserted.length} documents inserted !`);
+      await ItemModel.deleteMany(); // empty the styles db collection
+      const inserted = await ItemModel.insertMany(items); // insert docs in db
+      console.log(`seed items done : ${inserted.length} documents inserted !`);
     } catch (err) {
       console.error(err);
     }

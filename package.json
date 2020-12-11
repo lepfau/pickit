@@ -5,7 +5,10 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "DEBUG=pickit:* nodemon ./bin/www",
-    "server": "nodemon ./bin/www -e .hbs,.js"
+    "server": "nodemon ./bin/www -e .hbs,.js",
+    "seed:category": "node ./bin/seed.category",
+    "seed:item": "node ./bin/seed.item",
+    "seed:user": "node ./bin/seed.user"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
