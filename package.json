@@ -27,6 +27,9 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "seed:category": "node ./bin/seed.category",
+    "seed:item": "node ./bin/seed.item",
+    "seed:user": "node ./bin/seed.user"
   }
 }
