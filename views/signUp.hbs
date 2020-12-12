@@ -1,1 +1,27 @@
-<h1> You register on this page</h1>
+{{!-- <form method="post" action="/auth/signup" class="form" enctype="multipart/form-data"> --}}
+<form method="post" action="/auth/signup" enctype="multipart/form-data">
+    <h1 class="title">Signup for an account</h1>
+
+    <label for="username">Create a username</label>
+    <input type="text" name="username">
+
+    <label for="firstName">First Name</label>
+    <input type="text" name="firstName">
+
+    <label for="lastName">Last Name</label>
+    <input type="text" name="lastName">
+
+    <label for="email">Email</label>
+    <input type="text" name="email">
+
+    <label for="password">Password</label>
+    <input type="text" name="password">
+
+    <label for="image">Upload a profile picture<i></i></label> {{!-- add upload image in the i tag here --}}
+    <input type="file" name="image">
+
+    <hr>
+    <p>
+        Already have an account ? <a class="link" href="/auth/signin">Please signin !</a>
+    </p>
+</form>

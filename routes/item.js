@@ -8,16 +8,16 @@ router.get("/", async (req, res) => {
 });
 
 // will need to be changed for :id and AJAX
-router.get("/itemdetail", async (req, res) => {
+router.get("/detail", async (req, res) => {
   res.render("itemOneDetail");
 });
 
-router.get("/itemcreate", async (req, res) => {
+router.get("/create", async (req, res) => {
   res.render("itemCreate");
 });
 
 // will need to be changed for :id and AJAX
-router.get("/itemupdate", async (req, res) => {
+router.get("/update", async (req, res) => {
   res.render("itemUpdate");
 });
 

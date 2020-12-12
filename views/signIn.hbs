@@ -1,1 +1,16 @@
-<h1> You log on this page</h1>
+
+<form method="post" action="/auth/signin" class="form">
+    <h1> Sign in to your account</h1>
+
+    <label for="email"></label>
+    <input class="input" name="email" type="text" value="email">
+    <label for="password"></label>
+    <input class="input" name="password" type="password" value="password">
+
+    <button class="btn">Sign in</button>
+    <hr>
+    
+    <p>
+        No account yet ? <a class="link" href="/auth/signup">please signup !</a>
+    </p>
+</form>

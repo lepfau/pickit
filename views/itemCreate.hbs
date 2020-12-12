@@ -1,6 +1,33 @@
-<form>
-    <h1> Create your item here !</h1>
-    <p> this will be a form !</p>
+<form method="POST" action="/items/create" enctype="multipart/form-data">
+    <h1> Add an item</h1>
+
+    <label for="name">Item Name</label>
+    <input type="text" name="name">
+
+    <label for="brand">Brand</label>
+    <input type="text" name="brand">
+    
+    <label for="description">Description</label>
+    <input type="text" name="description">
+
+    <label for="category">Category</label>
+    <select id="" name="category">
+        <option value="-1" disabled selected>Choose a category...</option>
+        {{#each categories}}
+        <option value="{{name}}">{{name}}</option>
+        {{/each}}
+    </select>
+
+    <label for="price">Price</label>
+    <input type="text" name="price">    
+
+    <label for="link">Website link</label>
+    <input type="text" name="link">
+
+    <label for="image">Upload an image <i></i></label> {{!-- add upload image in the i tag here --}}
+    <input type="file" name="image">
+
+    <button>Add</button>
+
 </form>
 
-<p> this will be a form to create! (just to be sure)</p>

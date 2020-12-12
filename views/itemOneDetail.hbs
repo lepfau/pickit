@@ -1,1 +1,21 @@
-<h1>HERE TO DISPLAY ITEM DETAILS</h1>
+<div>
+    <a href="/items">Back to full list</a>
+    <a href="/items/create"> Add a new item </a>
+</div>
+
+<div>
+    <div>
+        <p>{{brand}}</p> {{!-- brand name  --}}
+        <div>
+            <p></p> {{!-- heart icon  --}}
+            <p>{{likes}}</p> {{!-- number of likes  --}}
+            <a href="/items/update/:id"></a>  {{!-- edit icon  --}}
+            <a href="/items/delete/:id"></a> {{!-- trash icon  --}}                    
+        </div>
+    </div>
+    <p>{{price}}</p>
+    <p>{{name}}</p>      
+    <p>{{description}}</p>
+    <a href="{{link}}">Go to retailer website</a>
+    <img src="{{image}}" alt="{{brand}} {{name}} image">
+</div>

@@ -1,6 +1,37 @@
-<form>
-    <h1> Update your item here !</h1>
-    <p> this will be a form !</p>
-</form>
+<form method="POST" action="/items/update/{{_id}}" enctype="multipart/form-data">
+    <h1> Update an item</h1>
 
-<p> this will be a form to update! (just to be sure)</p>
+    <label for="name">Item Name</label>
+    <input type="text" name="name" value="{{name}}">
+
+    <label for="brand">Brand</label>
+    <input type="text" name="brand" value="{{brand}}">
+    
+    <label for="description">Description</label>
+    <input type="text" name="description" value="{{description}}">
+
+    <label for="category">Category</label>
+    <select id="" name="category" >
+    {{#if category}}
+        <option value="-1" disabled selected>{{category}}</option>
+    {{else}}
+        <option value="-1" disabled selected>Choose a category...</option>
+        {{#each categories}}
+        <option value="{{name}}">{{name}}</option>
+        {{/each}}
+    {{/if}}
+    </select>
+
+    <label for="price">Price</label>
+    <input type="text" name="price" value="{{price}}">    
+
+    <label for="link">Website link</label>
+    <input type="text" name="link" value="{{link}}">
+
+    <img src="{{image}}" alt="{{brand}} {{name}} image">
+    <label for="image">Update image <i></i></label> {{!-- add upload image in the i tag here --}}
+    <input type="file" name="image" >
+
+    <button>Update</button>
+
+</form>

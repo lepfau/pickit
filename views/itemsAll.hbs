@@ -1,3 +1,35 @@
-<h1>ITEMS LIST</h1>
+{{!-- check all links / each when we do the routes --}}
+<div>
+    <div>
+        <span>Filter &#x25BC</span>
+        <span>Sort &#x25BC</span>
+    </div>
+    {{!-- let's replace the word "add" below with an "add" icon from FA --}}
+    <a href="/items/create">add</a>
+</div>
 
-<p>Here you can find all items added by you !</p>
+{{!-- maybe copy/comment out the below and put in a placeholder to do the styling? --}}
+<section> {{!-- will need scroll overflow y  --}}
+{{#each item}}
+    <a href="/items/detail/:id">
+        <div> {{!-- div for each item  --}}
+            <div>
+                <img src="{{image}}" alt="{{name}}">
+            </div>
+            <div>
+                <div>
+                    <p>{{brand}}</p> {{!-- brand name  --}}
+                    <div>
+                        <p></p> {{!-- heart icon  --}}
+                        <p>{{likes}}</p> {{!-- number of likes  --}}
+                        <a href="/items/update/:id"></a>  {{!-- edit icon  --}}
+                        <a href="/items/delete/:id"></a> {{!-- trash icon  --}}
+                    </div>
+                </div>      
+                <p>{{name}}</p>      
+                <p>{{price}}</p>
+            </div>
+        </div>
+    </a>
+{{/each}}
+</section>

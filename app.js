@@ -49,10 +49,12 @@ const index = require("./routes/index");
 const itemRouter = require("./routes/item");
 const friendRouter = require("./routes/friends");
 const rouletteRouter = require("./routes/roulette");
+const authRouter = require("./routes/auth");
 
 app.use("/", index);
 app.use("/items", itemRouter);
 app.use("/friends", friendRouter);
 app.use("/roulette", rouletteRouter);
+app.use("/", authRouter);
 
 module.exports = app;
