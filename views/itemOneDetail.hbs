@@ -1,16 +1,16 @@
 <div>
     <a href="/items">Back to full list</a>
-    <a href="/items/create"> Add a new item </a>
+    <a href="/items/create"> Add a new item <i class="fas fa-plus-circle"></i></a>
 </div>
 
 <div>
     <div>
-        <p>{{brand}}</p> {{!-- brand name  --}}
+        <p>{{brand}}</p> 
         <div>
-            <p></p> {{!-- heart icon  --}}
-            <p>{{likes}}</p> {{!-- number of likes  --}}
-            <a href="/items/update/:id"></a>  {{!-- edit icon  --}}
-            <a href="/items/delete/:id"></a> {{!-- trash icon  --}}                    
+            <p><i class="fas fa-heart"></i></p>
+            <p>{{likes}}</p> 
+            <a href="/items/update/:id"><i class="fas fa-edit"></i></a>  
+            <a href="/items/delete/:id"> <i class="fas fa-trash"></i></a>                 
         </div>
     </div>
     <p>{{price}}</p>

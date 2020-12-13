@@ -4,26 +4,25 @@
         <span>Filter &#x25BC</span>
         <span>Sort &#x25BC</span>
     </div>
-    {{!-- let's replace the word "add" below with an "add" icon from FA --}}
-    <a href="/items/create">add</a>
+    <a href="/items/create"><i class="fas fa-plus-circle"></i></a>
 </div>
 
 {{!-- maybe copy/comment out the below and put in a placeholder to do the styling? --}}
 <section> {{!-- will need scroll overflow y  --}}
 {{#each item}}
     <a href="/items/detail/:id">
-        <div> {{!-- div for each item  --}}
+        <div> 
             <div>
                 <img src="{{image}}" alt="{{name}}">
             </div>
             <div>
                 <div>
-                    <p>{{brand}}</p> {{!-- brand name  --}}
+                    <p>{{brand}}</p> 
                     <div>
-                        <p></p> {{!-- heart icon  --}}
-                        <p>{{likes}}</p> {{!-- number of likes  --}}
-                        <a href="/items/update/:id"></a>  {{!-- edit icon  --}}
-                        <a href="/items/delete/:id"></a> {{!-- trash icon  --}}
+                        <p><i class="fas fa-heart"></i></p> 
+                        <p>{{likes}}</p> 
+                        <a href="/items/update/:id"><i class="fas fa-edit"></i></a>  
+                        <a href="/items/delete/:id"> <i class="fas fa-trash"></i></a>                 
                     </div>
                 </div>      
                 <p>{{name}}</p>      
