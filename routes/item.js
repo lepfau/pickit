@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const ItemModel = require("./../models/item");
+const ItemModel = require("./../models/Item");
 
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
 router.get("/", async (req, res) => {

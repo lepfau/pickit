@@ -1,8 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Castoro&family=Fredoka+One&family=Permanent+Marker&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;700&display=swap");
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #f6f1d1;
+  font-family: Nunito;
 }
 
 a {
-  color: #00B7FF;
+  color: #0b2027;
+  font-size: 3vh;
+  padding: 10px;
+}
+
+.nav {
+  display: flex;
+}
+
+.navbar {
+  background-color: #70a9a1;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* position: fixed;
+  top: 0px; */
+}
+
+.navbar-left {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-home {
+  font-size: 8vh;
+  text-align: center;
+  color: #0b2027;
+  padding-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  font-family: Fredoka One;
+}
+
+.subtitle-home {
+  font-size: 5vh;
+  text-align: center;
+  color: #40798c;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-family: Permanent Marker;
+}
+
+.btns-home {
+  display: flex;
+  justify-content: center;
+  padding-top: 0px;
+  margin-bottom: 10px;
+}
+
+hr {
+  width: 90%;
+  color: black;
+  margin-bottom: 8vh;
+}
+
+.btn-log {
+  height: 6vh;
+  width: 24vh;
+  margin: 3vh;
+  border-radius: 5px;
+  background-color: #0b2027;
+  font-family: Nunito;
+  font-weight: 400;
+  font-size: 2vh;
+  text-align: center;
+  color: white;
+}
+
+.cards-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-home {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin: 5px;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.cardText-home {
+  font-size: 2vh;
+  text-align: center;
+  background-color: #0b2027;
+  padding: 5px;
+  width: 30vh;
+  margin: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  font-family: Nunito;
+  color: whitesmoke;
+  font-weight: 200;
+}
+
+.number-home {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding: 6px;
+  margin: 1vh;
+  font-size: 3.3vh;
+  width: 8vh;
+  height: 4vh;
+  border: 1px solid #0b2027;
+  background-color: #0b2027;
+  color: white;
+  font-family: Nunito;
+  border-radius: 5px;
+}
+
+.bg-home {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  opacity: 0.1;
+  display: flex;
+  width: 100%;
+  height: 95%;
+  background: repeat;
+}
+
+.footer {
+  position: fixed;
+  left: 20px;
+  bottom: 0px;
 }
