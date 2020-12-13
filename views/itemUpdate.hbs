@@ -1,37 +1,37 @@
-<form method="POST" action="/items/update/{{_id}}" enctype="multipart/form-data">
-    <h1> Update an item</h1>
+<form method="POST" action="/items/update/{{_id}}" enctype="multipart/form-data" class="form-update">
+    <h2 class="subtitle"> Update an item</h1>
 
-    <label for="name">Item Name</label>
-    <input type="text" name="name" value="{{name}}">
+        <label for="name">Item Name <i class="fas fa-tag"></i></label>
+        <input type="text" name="name" value="{{name}}">
 
-    <label for="brand">Brand</label>
-    <input type="text" name="brand" value="{{brand}}">
-    
-    <label for="description">Description</label>
-    <input type="text" name="description" value="{{description}}">
+        <label for="brand">Brand <i class="far fa-copyright"></i></label>
+        <input type="text" name="brand" value="{{brand}}">
 
-    <label for="category">Category</label>
-    <select id="" name="category" >
-    {{#if category}}
-        <option value="-1" disabled selected>{{category}}</option>
-    {{else}}
-        <option value="-1" disabled selected>Choose a category...</option>
-        {{#each categories}}
-        <option value="{{name}}">{{name}}</option>
-        {{/each}}
-    {{/if}}
-    </select>
+        <label for="description">Description <i class="fas fa-info-circle"></i></label>
+        <input type="text" name="description" value="{{description}}">
 
-    <label for="price">Price</label>
-    <input type="text" name="price" value="{{price}}">    
+        <label for="category">Category <i class="fas fa-box-open"></i></label>
+        <select id="" name="category">
+            {{#if category}}
+            <option value="-1" disabled selected>{{category}}</option>
+            {{else}}
+            <option value="-1" disabled selected>Choose a category...</option>
+            {{#each categories}}
+            <option value="{{name}}">{{name}}</option>
+            {{/each}}
+            {{/if}}
+        </select>
 
-    <label for="link">Website link</label>
-    <input type="text" name="link" value="{{link}}">
+        <label for="price">Price <i class="fas fa-money-bill-wave"></i></label>
+        <input type="text" name="price" value="{{price}}">
 
-    <img src="{{image}}" alt="{{brand}} {{name}} image">
-    <label for="image">Update image <i class="fas fa-cloud-upload-alt"></i></label> 
-    <input type="file" name="image" >
+        <label for="link">Website link <i class="fas fa-link"></i></label>
+        <input type="text" name="link" value="{{link}}">
 
-    <button>Update</button>
+        <img src="{{image}}" alt="{{brand}} {{name}} image">
+        <label for="image">Update image <i class="fas fa-cloud-upload-alt"></i></label>
+        <input type="file" name="image">
+
+        <button class="btn-log">Update!</button>
 
 </form>

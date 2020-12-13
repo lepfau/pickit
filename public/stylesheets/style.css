@@ -11,6 +11,13 @@ body {
   font-family: Nunito;
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
 a {
   color: #0b2027;
   font-size: 3vh;
@@ -156,12 +163,6 @@ a {
   height: 100%;
 }
 
-.footer {
-  position: fixed;
-  left: 20px;
-  bottom: 0px;
-}
-
 .form-signin {
   text-align: center;
   display: flex;
@@ -218,15 +219,33 @@ label {
   margin: 30px;
   font-size: 2.2vh;
   padding: 0;
-  margin: 8px;
+  margin: 5px;
   font-family: Nunito;
 }
 
-.form-create select {
+.form-update {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-update input {
+  width: 280px;
+  height: 30px;
+  margin: 30px;
+  font-size: 2.2vh;
+  padding: 0;
+  margin: 5px;
+  font-family: Nunito;
+}
+
+select {
   width: 280px;
   height: 30px;
   margin: 20px;
-  font-size: 2.5vh;
+  font-size: 2.2vh;
   padding: 0;
   margin: 5px;
   font-family: Nunito;
