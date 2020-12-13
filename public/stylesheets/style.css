@@ -156,11 +156,13 @@ a {
 .bg-home {
   position: absolute;
   z-index: -1;
-  top: 0px;
+  top: 57px;
   bottom: auto;
   opacity: 0.1;
   width: 100%;
-  height: 100%;
+  height: 48%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .form-signin {
@@ -194,6 +196,7 @@ a {
   margin: 20px;
   font-size: 2vh;
   font-family: Nunito;
+  display: block;
 }
 
 .form-signup input {
@@ -211,6 +214,7 @@ label {
   margin: 5px;
   font-family: Nunito;
   font-weight: 300;
+  display: block;
 }
 
 .form-create input {
@@ -249,4 +253,10 @@ select {
   padding: 0;
   margin: 5px;
   font-family: Nunito;
+}
+
+.fullInput {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

@@ -1,31 +1,45 @@
 <form method="POST" action="/items/create" enctype="multipart/form-data" class="form-create">
     <h2 class="subtitle"> Add an item</h1>
 
-        <label for="name">Item Name <i class="fas fa-tag"></i></label>
-        <input type="text" name="name">
+        <div class="fullInput">
+            <label for="name">Item Name <i class="fas fa-tag"></i></label>
+            <input type="text" name="name" placeholder="Item name">
+        </div>
 
-        <label for="brand">Brand <i class="far fa-copyright"></i></label>
-        <input type="text" name="brand">
+        <div class="fullInput">
+            <label for="brand">Brand <i class="far fa-copyright"></i></label>
+            <input type="text" name="brand" placeholder="Brand">
+        </div>
 
-        <label for="description">Description <i class="fas fa-info-circle"></i></label>
-        <input type="text" name="description">
+        <div class="fullInput">
+            <label for="description">Description <i class="fas fa-info-circle"></i></label>
+            <input type="text" name="description" placeholder="Description">
+        </div>
 
-        <label for="category">Category <i class="fas fa-box-open"></i></label>
-        <select id="" name="category">
-            <option value="-1" disabled selected>Choose a category...</option>
-            {{#each categories}}
-            <option value="{{name}}">{{name}}</option>
-            {{/each}}
-        </select>
+        <div class="fullInput">
+            <label for="category">Category <i class="fas fa-box-open"></i></label>
+            <select id="" name="category">
+                <option value="-1" disabled selected>Choose a category...</option>
+                {{#each categories}}
+                <option value="{{name}}">{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
 
-        <label for="price">Price <i class="fas fa-money-bill-wave"></i></label>
-        <input type="text" name="price">
+        <div class="fullInput">
+            <label for="price">Price <i class="fas fa-money-bill-wave"></i></label>
+            <input type="text" name="price" placeholder="Price">
+        </div>
 
-        <label for="link">Website link <i class="fas fa-link"></i></label>
-        <input type="text" name="link">
+        <div class="fullInput">
+            <label for="link">Website link <i class="fas fa-link"></i></label>
+            <input type="text" name="link" placeholder="Website link">
+        </div>
 
-        <label for="image">Upload an image <i class="fas fa-cloud-upload-alt"></i></label>
-        <input type="file" name="image">
+        <div class="fullInput">
+            <label for="image">Upload an image <i class="fas fa-cloud-upload-alt"></i></label>
+            <input type="file" name="image">
+        </div>
 
         <button class="btn-log">Add Item !</button>
 

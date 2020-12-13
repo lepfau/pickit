@@ -1,23 +1,36 @@
 <form method="post" action="/auth/signup" enctype="multipart/form-data" class="form-signup">
+
     <h2 class="subtitle">Signup for an account</h1>
 
-        <label for="username">Create a username</label>
-        <input type="text" name="username">
+        <div class="fullInput">
+            <label for="username">Create a username</label>
+            <input type="text" name="username" placeholder="Username">
+        </div>
 
-        <label for="firstName" class="label">First Name</label>
-        <input class="input" type="text" name="firstName">
+        <div class="fullInput">
+            <label for="firstName" class="label">First Name</label>
+            <input class="input" type="text" name="firstName" placeholder="first name">
+        </div>
 
-        <label for="lastName" class="label">Last Name</label>
-        <input class="input" type="text" name="lastName">
+        <div class="fullInput">
+            <label for="lastName" class="label">Last Name</label>
+            <input class="input" type="text" name="lastName" placeholder="last name">
+        </div>
 
-        <label for="email" class="label">Email</label>
-        <input class="input" type="email" name="email">
+        <div class="fullInput">
+            <label for="email" class="label">Email</label>
+            <input class="input" type="email" name="email" placeholder="email">
+        </div>
 
-        <label for="password" class="label">Password</label>
-        <input class="input" type="password" name="password">
+        <div class="fullInput">
+            <label for="password" class="label">Password</label>
+            <input class="input" type="password" name="password" placeholder="password">
+        </div>
 
-        <label for="image" class="label">Upload a profile picture<i class="fas fa-cloud-upload-alt"></i></label>
-        <input class="input" type="file" name="image">
+        <div class="fullInput">
+            <label for="image" class="label">Upload a profile picture<i class="fas fa-cloud-upload-alt"></i></label>
+            <input class="input" type="file" name="image">
+        </div>
 
         <button class="btn-signup">Sign Up!</button>
         <p>
