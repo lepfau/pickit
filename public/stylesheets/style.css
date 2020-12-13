@@ -15,6 +15,7 @@ a {
   color: #0b2027;
   font-size: 3vh;
   padding: 10px;
+  text-decoration: none;
 }
 
 .nav {
@@ -49,7 +50,7 @@ a {
   font-family: Fredoka One;
 }
 
-.subtitle-home {
+.subtitle {
   font-size: 5vh;
   text-align: center;
   color: #70a9a1;
@@ -81,6 +82,22 @@ a {
   align-items: center;
 }
 
+.btn-signup {
+  height: 5vh;
+  width: 24vh;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #0b2027;
+  font-family: Nunito;
+  font-weight: 400;
+  font-size: 2.3vh;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cards-home {
   display: flex;
   flex-direction: column;
@@ -91,7 +108,7 @@ a {
   display: flex;
   flex-direction: row;
   align-content: center;
-  margin: 5px;
+  margin: 0px;
   justify-content: center;
   border-radius: 5px;
 }
@@ -143,4 +160,74 @@ a {
   position: fixed;
   left: 20px;
   bottom: 0px;
+}
+
+.form-signin {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-signup {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-create {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-signin input {
+  font-size: 2.8vh;
+  width: 250px;
+  height: 5vh;
+  margin: 20px;
+  font-size: 2vh;
+  font-family: Nunito;
+}
+
+.form-signup input {
+  width: 280px;
+  height: 30px;
+  margin: 20px;
+  font-size: 2.5vh;
+  padding: 0;
+  margin: 5px;
+  font-family: Nunito;
+}
+
+label {
+  padding: 0;
+  margin: 5px;
+  font-family: Nunito;
+  font-weight: 300;
+}
+
+.form-create input {
+  width: 280px;
+  height: 30px;
+  margin: 30px;
+  font-size: 2.2vh;
+  padding: 0;
+  margin: 8px;
+  font-family: Nunito;
+}
+
+.form-create select {
+  width: 280px;
+  height: 30px;
+  margin: 20px;
+  font-size: 2.5vh;
+  padding: 0;
+  margin: 5px;
+  font-family: Nunito;
 }

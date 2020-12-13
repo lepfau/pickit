@@ -1,33 +1,32 @@
-<form method="POST" action="/items/create" enctype="multipart/form-data">
-    <h1> Add an item</h1>
+<form method="POST" action="/items/create" enctype="multipart/form-data" class="form-create">
+    <h2 class="subtitle"> Add an item</h1>
 
-    <label for="name">Item Name</label>
-    <input type="text" name="name">
+        <label for="name">Item Name <i class="fas fa-tag"></i></label>
+        <input type="text" name="name">
 
-    <label for="brand">Brand</label>
-    <input type="text" name="brand">
-    
-    <label for="description">Description</label>
-    <input type="text" name="description">
+        <label for="brand">Brand <i class="far fa-copyright"></i></label>
+        <input type="text" name="brand">
 
-    <label for="category">Category</label>
-    <select id="" name="category">
-        <option value="-1" disabled selected>Choose a category...</option>
-        {{#each categories}}
-        <option value="{{name}}">{{name}}</option>
-        {{/each}}
-    </select>
+        <label for="description">Description <i class="fas fa-info-circle"></i></label>
+        <input type="text" name="description">
 
-    <label for="price">Price</label>
-    <input type="text" name="price">    
+        <label for="category">Category <i class="fas fa-box-open"></i></label>
+        <select id="" name="category">
+            <option value="-1" disabled selected>Choose a category...</option>
+            {{#each categories}}
+            <option value="{{name}}">{{name}}</option>
+            {{/each}}
+        </select>
 
-    <label for="link">Website link</label>
-    <input type="text" name="link">
+        <label for="price">Price <i class="fas fa-money-bill-wave"></i></label>
+        <input type="text" name="price">
 
-    <label for="image">Upload an image <i class="fas fa-cloud-upload-alt"></i></label>
-    <input type="file" name="image">
+        <label for="link">Website link <i class="fas fa-link"></i></label>
+        <input type="text" name="link">
 
-    <button>Add</button>
+        <label for="image">Upload an image <i class="fas fa-cloud-upload-alt"></i></label>
+        <input type="file" name="image">
+
+        <button>Add Item !</button>
 
 </form>
-

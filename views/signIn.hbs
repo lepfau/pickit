@@ -1,15 +1,14 @@
-<form method="post" action="/auth/signin" class="form">
-    <h1> Sign in to your account</h1>
+<form method="post" action="/auth/signin" class="form-signin">
+    <h2 class="subtitle"> Sign in to your account</h1>
+        <label for="email"></label>
+        <input name="email" type="text" value="" placeholder="enter your email...">
+        <label for="password"></label>
+        <input name="password" type="password" value="" placeholder="password">
 
-    <label for="email"></label>
-    <input class="input" name="email" type="text" value="email">
-    <label for="password"></label>
-    <input class="input" name="password" type="password" value="password">
+        <button class="btn-log">Sign in</button>
+        <hr>
 
-    <button class="btn">Sign in</button>
-    <hr>
-
-    <p>
-        No account yet ? <a class="link" href="/signup">please signup !</a>
-    </p>
+        <p>
+            No account yet ? <a class="link" href="/signup">Please signup !</a>
+        </p>
 </form>
