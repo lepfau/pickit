@@ -1,11 +1,16 @@
-<div>
-    <h1> Your friends</h1>
-    <i class="fas fa-plus-circle"></i>
+<form id="search-bar" method="get" action="/friends/search" class="form">
+    <input class="input" type="text" placeholder="search" name="search">
+    <button class="btn">
+        <i class="fa fa-search"></i>
+    </button>
+</form>
+
+<h1> Your friends</h1>
+<i class="fas fa-plus-circle"></i>
 </div>
 
 <div>
-{{#each} friends}
+    {{#each users}}
     <p>{{firstName}} {{lastName}}</p>
     <img src="{{image}}" alt="{{firstName}} {{lastName}}">
-{{/each}}
-</div>
+    {{/each}}
