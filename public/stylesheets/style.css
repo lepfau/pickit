@@ -298,3 +298,18 @@ select {
   background-color: #0b2027;
   border-radius: 20px;
 }
+
+.full-item-card {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-item-card a {
+  font-size: 1em;
+}
+
+.full-item-card img {
+  height: auto;
+  width: 320px;
+}

@@ -29,11 +29,16 @@ function displayItems() {
       fullItemList.innerHTML = "";
       respfromAPI.data.forEach((item) => {
         fullItemList.innerHTML +=
-          `<div> ${item.name} </div>
-        <div> ${item.brand} </div>
-        <a href="/items/detail/${item._id}">Details</a>
+          `
+          <div class="full-item-card">
+          <div> Name: ${item.name} </div>
+        <div> Brand: ${item.brand} </div>
+        <div> Price: ${item.price} € </div>
         <a href="/items/update/${item._id}"><i class="fas fa-edit"></i></a>
-        <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>`
+        <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>
+        <div> <img src="${item.image}"> </div>
+        <a href="/items/detail/${item._id}">See more..</a>
+        </div>`
       })
       const deleteButton = document.querySelectorAll(".delete-btn");
       console.log(deleteButton)
