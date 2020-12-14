@@ -8,6 +8,7 @@ router.get("/", async (req, res) => {
   res.render("friendsAll", { users });
 });
 
+
 router.get("/search", async (req, res, next) => {
   // req.body (posted infos)
   // req.params (variable/dynamique part of a route path)
@@ -23,8 +24,6 @@ router.get("/search", async (req, res, next) => {
   }
 
 });
-
-
 
 
 module.exports = router;
