@@ -8,27 +8,27 @@
 </div>
 
 {{!-- maybe copy/comment out the below and put in a placeholder to do the styling? --}}
-<section> {{!-- will need scroll overflow y  --}}
-{{#each item}}
+<section id="item-list-all"> {{!-- will need scroll overflow y --}}
+    {{#each item}}
     <a href="/items/detail/:id">
-        <div> 
-            <div>
+        <div class="full-item-card">
+            <div class="item-image">
                 <img src="{{image}}" alt="{{name}}">
             </div>
-            <div>
+            <div class="item-infos">
                 <div>
-                    <p>{{brand}}</p> 
+                    <p>{{brand}}</p>
                     <div>
-                        <p><i class="fas fa-heart"></i></p> 
-                        <p>{{likes}}</p> 
-                        <a href="/items/update/:id"><i class="fas fa-edit"></i></a>  
-                        <a href="/items/delete/:id"> <i class="fas fa-trash"></i></a>                 
+                        <p><i class="fas fa-heart"></i></p>
+                        <p>{{likes}}</p>
+                        <a href="/items/update/:id"><i class="fas fa-edit"></i></a>
+                        <a href="/items/delete/:id"> <i class="fas fa-trash"></i></a>
                     </div>
-                </div>      
-                <p>{{name}}</p>      
+                </div>
+                <p>{{name}}</p>
                 <p>{{price}}</p>
             </div>
         </div>
     </a>
-{{/each}}
+    {{/each}}
 </section>

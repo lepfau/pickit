@@ -11,6 +11,7 @@
     "seed:user": "node ./bin/seed.user"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.23.0",
