@@ -2,6 +2,7 @@ const express = require("express");
 const { findOne } = require("./../models/Item");
 const router = express.Router();
 const ItemModel = require("./../models/Item");
+const CategoryModel = require("./../models/Category")
 const uploader = require("./../config/cloudinary");
 
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
@@ -33,16 +34,19 @@ router.get("/detail", async (req, res) => {
 });
 
 router.get("/create", async (req, res) => {
-  res.render("itemCreate");
+  const categories = await CategoryModel.find()
+  res.render("itemCreate", { categories });
 });
 
-router.get("/update/:id", async (req, res) => {
-  try {
-    res.render("itemUpdate", await ItemModel.findById(req.params.id))
-  } catch (err) {
-    console.log(err)
-  }
-});
+router.
+  get("/update/:id", async (req, res) => {
+    try {
+      res.render("itemUpdate", await ItemModel.findById(req.params.id))
+    } catch (err) {
+      console.log(err)
+    }
+  });
+
 
 
 router.post("/create", uploader.single("image"), async (req, res) => {

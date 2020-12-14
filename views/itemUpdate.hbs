@@ -20,13 +20,14 @@
             <label for="category">Category <i class="fas fa-box-open"></i></label>
             <select id="" name="category">
                 {{#if category}}
-                <option value="-1" disabled selected>{{category}}</option>
+                <option value="-1" disabled selected>{{category.name}}</option>
                 {{else}}
                 <option value="-1" disabled selected>Choose a category...</option>
-                {{#each categories}}
-                <option value="{{name}}">{{name}}</option>
-                {{/each}}
                 {{/if}}
+                {{#each categories}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+
             </select>
         </div>
 
