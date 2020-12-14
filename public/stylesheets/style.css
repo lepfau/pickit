@@ -287,7 +287,6 @@ select {
   flex-direction: row;
   align-items: center;
   margin: 20px 10px;
-  justify-content: space-evenly;
   background-color: #70a9a1;
   border-radius: 5px;
 }
@@ -300,9 +299,11 @@ select {
 }
 
 .full-item-card {
-  margin: 40px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  height: 160px;
+  margin-left: 10px;
 }
 
 .full-item-card a {
@@ -311,5 +312,30 @@ select {
 
 .full-item-card img {
   height: auto;
-  width: 320px;
+  width: 100px;
+}
+
+.item-brand {
+  font-size: 1.2em;
+  font-weight: 800;
+  width: 150px;
+}
+
+.item-name {
+  font-size: 1em;
+}
+
+.item-price {
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+.left-part {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item-description {
+  margin: 15px;
 }
