@@ -39,12 +39,10 @@ function displayItems() {
                 <div class="item-brand">${item.brand} </div>
                 <div class="item-name">${item.name} </div>
                 <div class="item-price"> ${item.price} € </div>
-                <div> <a href="/items/detail/${item._id}">See more..</a> </div>
+                <div> <a href="/items/${item.name}">See more..</a> </div>
                 </div>
              </div>
-             <div>
              <i class="fas fa-heart"></i>
-             </div>
              <div class="right-part">
                <a href="/items/update/${item._id}"><i class="fas fa-edit"></i></a>
                <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>

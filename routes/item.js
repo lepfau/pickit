@@ -29,13 +29,18 @@ router.delete("/api/delete/:id", async (req, res) => {
 
 
 // will need to be changed for :id and AJAX
-router.get("/detail", async (req, res) => {
-  res.render("itemOneDetail");
-});
+
+
+
 
 router.get("/create", async (req, res) => {
   const categories = await CategoryModel.find()
   res.render("itemCreate", { categories });
+});
+
+router.get("/:name", async (req, res) => {
+  const item = await ItemModel.findOne({ name: req.params.name });
+  res.render("itemOneDetail", item);
 });
 
 router.
