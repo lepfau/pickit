@@ -14,7 +14,7 @@ const itemSchema = new Schema({
   },
   price: Number,
   link: String,
-  user: { type: Schema.Types.ObjectId, ref: "user" },
+  user: [{ type: Schema.Types.ObjectId, ref: "user" }],
   reaction: [
     {
       userReacting: { type: Schema.Types.ObjectId, ref: "user" },

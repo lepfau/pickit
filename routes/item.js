@@ -14,7 +14,11 @@ router.get("/", async (req, res) => {
 
 router.get("/api", async function (req, res) {
   try {
-    res.status(200).json(await ItemModel.find());
+    res
+      .status(200)
+      .json(
+        await ItemModel.find({ user: { $in: [req.session.currentUser._id] } })
+      );
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -67,6 +71,7 @@ router.post("/create", uploader.single("image"), async (req, res) => {
   const newItem = { ...req.body };
   if (!req.file) newItem.image = undefined;
   else newItem.image = req.file.path;
+  newItem.user = req.session.currentUser._id;
 
   try {
     await ItemModel.create(newItem);
