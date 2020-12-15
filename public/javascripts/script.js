@@ -1,10 +1,6 @@
+const itemsApi = new APIHandler("http://localhost:5000");
 
-const itemsApi = new APIHandler("http://localhost:5000")
-
-const fullItemList = document.getElementById("item-list-all")
-
-
-
+const fullItemList = document.getElementById("item-list-all");
 
 // async function getAllItems(callback) {
 //   try {
@@ -21,16 +17,14 @@ window.addEventListener("load", () => {
   displayItems();
 });
 
-
 function displayItems() {
-  itemsApi.getAllItems()
+  itemsApi
+    .getAllItems()
     .then((respfromAPI) => {
-      console.log(respfromAPI.data)
+      console.log(respfromAPI.data);
       fullItemList.innerHTML = "";
       respfromAPI.data.forEach((item) => {
-        fullItemList.innerHTML +=
-
-          `<div class="full-item-card">
+        fullItemList.innerHTML += `<div class="full-item-card">
              <div class="left-part">
                <div class="item-image"> 
                <img src="${item.image}"> 
@@ -48,28 +42,30 @@ function displayItems() {
                <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>
               
             </div>
-          </div>`
-      })
+          </div>`;
+      });
       const deleteButton = document.querySelectorAll(".delete-btn");
-      console.log(deleteButton)
-      deleteButton.forEach(btn => btn.onclick = (evt) => {
-        console.log("hello");
-        deleteItem(evt)
-      })
-    }).catch((err) => {
-      console.log(err);
+      console.log(deleteButton);
+      deleteButton.forEach(
+        (btn) =>
+          (btn.onclick = (evt) => {
+            console.log("hello");
+            deleteItem(evt);
+          })
+      );
     })
-};
-
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 async function deleteItem(evt) {
   const id = evt.target.getAttribute("item-id");
   try {
-    await itemsApi.deleteOneItem(id);  //delete from database
-    await itemsApi.getAllItems(); //"update" database 
+    await itemsApi.deleteOneItem(id); //delete from database
+    await itemsApi.getAllItems(); //"update" database
     displayItems(); // display again all items on the page
   } catch (err) {
     console.error(err);
   }
 }
-
