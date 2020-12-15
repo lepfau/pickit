@@ -10,6 +10,8 @@ const users = [
     lastName: "Chen",
     email: "elisachen@gmail.com",
     password: "12345",
+    image:
+      "https://longcrendonfc.co.uk/wp-content/uploads/2018/10/facebook-profile-blank-face-300x225.jpeg",
     items: [],
     friends: [],
   },

@@ -24,11 +24,25 @@ function displayItems() {
       console.log(respfromAPI.data);
       fullItemList.innerHTML = "";
       respfromAPI.data.forEach((item) => {
-        fullItemList.innerHTML += `<div> ${item.name} </div>
-        <div> ${item.brand} </div>
-        <a href="/items/detail/${item._id}">Details</a>
-        <a href="/items/update/${item._id}"><i class="fas fa-edit"></i></a>
-        <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>`;
+        fullItemList.innerHTML += `<div class="full-item-card">
+             <div class="left-part">
+               <div class="item-image"> 
+               <img src="${item.image}"> 
+               </div>
+                <div class="item-description">
+                <div class="item-brand">${item.brand} </div>
+                <div class="item-name">${item.name} </div>
+                <div class="item-price"> ${item.price} € </div>
+                <div> <a href="/items/${item.name}">See more..</a> </div>
+                </div>
+             </div>
+             <i class="fas fa-heart"></i>
+             <div class="right-part">
+               <a href="/items/update/${item._id}"><i class="fas fa-edit"></i></a>
+               <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>
+              
+            </div>
+          </div>`;
       });
       const deleteButton = document.querySelectorAll(".delete-btn");
       console.log(deleteButton);

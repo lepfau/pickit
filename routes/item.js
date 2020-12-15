@@ -29,13 +29,15 @@ router.delete("/api/delete/:id", async (req, res) => {
 });
 
 // will need to be changed for :id and AJAX
-router.get("/detail", async (req, res) => {
-  res.render("itemOneDetail");
-});
 
 router.get("/create", async (req, res) => {
   const categories = await CategoryModel.find();
   res.render("itemCreate", { categories });
+});
+
+router.get("/:name", async (req, res) => {
+  const item = await ItemModel.findOne({ name: req.params.name });
+  res.render("itemOneDetail", item);
 });
 
 router.get("/update/:id", async (req, res) => {
@@ -43,6 +45,21 @@ router.get("/update/:id", async (req, res) => {
     res.render("itemUpdate", await ItemModel.findById(req.params.id));
   } catch (err) {
     console.log(err);
+  }
+});
+
+router.get("/search/items", async (req, res, next) => {
+  // req.body (posted infos)
+  // req.params (variable/dynamique part of a route path)
+  // req.query (access infos from for with get method)
+  try {
+    console.log(req.query); // query strings
+    const exp = new RegExp(req.query.search); // creating a regular expression
+    const matchedItems = await ItemModel.find({ name: { $regex: exp } });
+
+    res.render("itemsAll", { items: matchedItems });
+  } catch (err) {
+    next(err);
   }
 });
 
