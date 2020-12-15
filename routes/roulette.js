@@ -9,17 +9,20 @@ router.get("/", async (req, res, next) => {
   });
 });
 
+router.get("/api", async function (req, res) {
+  try {
+    res.status(200).json(await ItemModel.findOne());
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
 module.exports = router;
 
-// To-Do's
-// Retrieve all the items in the database and copy them to a new array of items that we can manipulate
-//  ---> itemsApi.getAllItems() already in script.js
-// Pick one item from the array (in order for now is ok, randomize later)
-//  ---> use a forEach function
-// Render the roulette page with this item
-// set event listeners for thumbs down/heart: on click:
-// 1) save the user/response to the item database
-// 2) pick a new item
-// 3) empty page
-// 4) render the page with the next item
-// when there are no more items, display a message saying: no more items to judge
+// new approach from frank
+// findOne where edouard is not in the reaction array
+// render page with this item
+// add event listener to like/dislike buttons: saves user/reaction to reaction (items db)
+// when get a response back, make another call to get another item and display it
+
+// ** rewrite function and roulette.hbs with right classes to only need to refill in the item details

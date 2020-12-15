@@ -4,28 +4,25 @@ class APIHandler {
   }
 
   getAllItems() {
-    return axios.get(`${this.BASE_URL}/items/api`)
+    return axios.get(`${this.BASE_URL}/items/api`);
   }
 
-  getOneItem() {
-
+  getRouletteItem() {
+    return axios.get(`${this.BASE_URL}/roulette/api`);
   }
 
-  createOneItem() {
+  getOneItem() {}
 
-  }
+  createOneItem() {}
 
-  updateOneItem() {
-
-  }
+  updateOneItem() {}
 
   deleteOneItem(itemId) {
-    return axios.delete(`${this.BASE_URL}/items/api/delete/` + itemId)
+    return axios.delete(`${this.BASE_URL}/items/api/delete/` + itemId);
   }
 }
 
-
-  //COPY PASTA FROM LABS SHH
+//COPY PASTA FROM LABS SHH
 //   async function deleteTodo(evt, callback) {
 //     const id = evt.target.getAttribute("data-todo-id");
 //     try {

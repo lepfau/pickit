@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const axios = require("axios").default;
+const UserModel = require("./models/User");
 
 mongoose
   .connect("mongodb://localhost/pickit", { useNewUrlParser: true })
@@ -30,6 +31,7 @@ const app = express();
 
 // Middleware Setup
 app.use(logger("dev"));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -46,6 +48,17 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 // default value for title local
 app.locals.title = "Pickit";
 
+// if (process.env.NODE_ENV !== "production") {
+// app.use(async (req, res, next) => {
+//   res.locals.toto = "Hello my name is Toto";
+//   const loggedInUser = await UserModel.findOne();
+//   console.log(req.session);
+//   req.session.currentUser = loggedInUser;
+//   res.locals.isLoggedIn = true;
+//   next();
+// });
+// }
+
 const index = require("./routes/index");
 const itemRouter = require("./routes/item");
 const friendRouter = require("./routes/friends");
@@ -57,5 +70,7 @@ app.use("/items", itemRouter);
 app.use("/friends", friendRouter);
 app.use("/roulette", rouletteRouter);
 app.use("/", authRouter);
+
+//app.use((err, req, res, next) => {});
 
 module.exports = app;
