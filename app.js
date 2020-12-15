@@ -10,6 +10,8 @@ const logger = require("morgan");
 const path = require("path");
 const axios = require("axios").default;
 const UserModel = require("./models/User");
+const flash = require("connect-flash");
+const session = require("express-session");
 
 mongoose
   .connect("mongodb://localhost/pickit", { useNewUrlParser: true })
@@ -44,6 +46,24 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 hbs.registerPartials(path.join(__dirname, "views/partials"));
+
+//initialize session
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    saveUninitialized: true,
+    resave: true,
+  })
+);
+
+app.use(flash());
+
+// CUSTOM MIDDLEWARES
+// expose flash message to the hbs templates, if any flash-message is defined
+app.use(require("./middlewares/exposeFlashMessage"));
+
+// expose login status to the hbs templates
+app.use(require("./middlewares/exposeLoginStatus"));
 
 // default value for title local
 app.locals.title = "Pickit";

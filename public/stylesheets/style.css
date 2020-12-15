@@ -339,3 +339,7 @@ select {
 .item-description {
   margin: 15px;
 }
+
+.msg {
+  border: 3px solid black;
+}
