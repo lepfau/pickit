@@ -5,7 +5,8 @@ const UserModel = require("./../models/User");
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
 router.get("/", async (req, res) => {
   const users = await UserModel.find();
-  res.render("friendsAll", { users });
+  res.render("friendsAll", { users, script: "script" });
+
 });
 
 
