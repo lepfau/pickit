@@ -48,21 +48,20 @@ router.get("/update/:id", async (req, res) => {
   }
 });
 
-// router.get("/search/items", async (req, res, next) => {
-//   // req.body (posted infos)
-//   // req.params (variable/dynamique part of a route path)
-//   // req.query (access infos from for with get method)
-//   try {
-//     console.log(req.query); // query strings
-//     const exp = new RegExp(req.query.search); // creating a regular expression
-//     const matchedItems = await ItemModel.find({ name: { $regex: exp } });
+router.get("/search/items", async (req, res, next) => {
+  // req.body (posted infos)
+  // req.params (variable/dynamique part of a route path)
+  // req.query (access infos from for with get method)
+  try {
+    console.log(req.query); // query strings
+    const exp = new RegExp(req.query.search); // creating a regular expression
+    const matchedItems = await ItemModel.find({ name: { $regex: exp } });
 
-//     res.render("itemsAll", { items: matchedItems });
-//   } catch (err) {
-//     next(err);
-//   }
-
-// });
+    res.render("itemsAll", { items: matchedItems });
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.post("/create", uploader.single("image"), async (req, res) => {
   const newItem = { ...req.body };
