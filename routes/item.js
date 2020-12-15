@@ -2,12 +2,14 @@ const express = require("express");
 const { findOne } = require("./../models/Item");
 const router = express.Router();
 const ItemModel = require("./../models/Item");
-const CategoryModel = require("./../models/Category")
+const CategoryModel = require("./../models/Category");
 const uploader = require("./../config/cloudinary");
 
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
 router.get("/", async (req, res) => {
-  res.render("itemsAll");
+  res.render("itemsAll", {
+    script: "script",
+  });
 });
 
 router.get("/api", async function (req, res) {
@@ -18,7 +20,6 @@ router.get("/api", async function (req, res) {
   }
 });
 
-
 router.delete("/api/delete/:id", async (req, res) => {
   try {
     res.status(200).json(await ItemModel.findByIdAndDelete(req.params.id));
@@ -27,27 +28,23 @@ router.delete("/api/delete/:id", async (req, res) => {
   }
 });
 
-
 // will need to be changed for :id and AJAX
 router.get("/detail", async (req, res) => {
   res.render("itemOneDetail");
 });
 
 router.get("/create", async (req, res) => {
-  const categories = await CategoryModel.find()
+  const categories = await CategoryModel.find();
   res.render("itemCreate", { categories });
 });
 
-router.
-  get("/update/:id", async (req, res) => {
-    try {
-      res.render("itemUpdate", await ItemModel.findById(req.params.id))
-    } catch (err) {
-      console.log(err)
-    }
-  });
-
-
+router.get("/update/:id", async (req, res) => {
+  try {
+    res.render("itemUpdate", await ItemModel.findById(req.params.id));
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 router.post("/create", uploader.single("image"), async (req, res) => {
   const newItem = { ...req.body };
@@ -62,7 +59,6 @@ router.post("/create", uploader.single("image"), async (req, res) => {
   }
 });
 
-
 // will need to be changed for :id and AJAX
 
 router.post("/update/:id", uploader.single("image"), async (req, res) => {
@@ -76,6 +72,5 @@ router.post("/update/:id", uploader.single("image"), async (req, res) => {
     next(err);
   }
 });
-
 
 module.exports = router;
