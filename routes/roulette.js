@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const ItemModel = require("./../models/Item");
+const UserModel = require("./../models/User");
 
 /* GET home page */
 router.get("/", async (req, res, next) => {
@@ -10,8 +11,17 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/api", async function (req, res) {
+  const currentUser = await UserModel.findOne(req.session.currentUser._id);
+  console.log(currentUser);
   try {
-    res.status(200).json(await ItemModel.findOne());
+    res.status(200).json(
+      await ItemModel.findOne({
+        $and: [
+          { user: { $in: currentUser.friends } },
+          { reaction: { $nin: [currentUser._id] } },
+        ],
+      })
+    );
   } catch (err) {
     res.status(500).json(err.message);
   }
