@@ -51,6 +51,11 @@ router.post("/signin", async (req, res, next) => {
 
 
 
+router.post('/signin', (req, res, next) => {
+  console.log('SESSION =====> ', req.session);
+
+  // everything else stays untouched
+});
 
 router.get("/signup", async (req, res) => {
   res.render("signUp");
