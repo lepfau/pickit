@@ -1,7 +1,7 @@
 <section id="roulette-div">
     <div>
-        <p id="roulettte-item-user-name">Like it for {{item.user.name}}? </p>
-        <img id="roulettte-item-user-image" src="{{item.user.image}}" alt=""> image
+        <p id="roulettte-item-user-name">Like it for {{user.name}}? </p>
+        <img id="roulettte-item-user-image" src="{{user.image}}" alt=""> image
     </div>
 
     <hr>
@@ -16,9 +16,9 @@
         <img id="roulette-image" src="{{image}}" alt="">
 
         <div class="roulette-btns">
-            <i id="dislike-btn" class="fas fa-thumbs-down"></i>
+            <a id="dislike-btn" href="/roulette/dislike/{{_id}}"><i class="fas fa-thumbs-down"></i></a>
 
-            <i id="like-btn" class="fas fa-heart"></i>
+            <a id="like-btn" href="roulette/like/{{_id}}"><i class="fas fa-heart"></i></a>
         </div>
     </div>
     <div class="link">

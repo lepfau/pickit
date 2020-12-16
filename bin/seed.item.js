@@ -2,6 +2,7 @@ require("dotenv").config();
 require("./../config/mongo"); // fetch the db connection
 const UserModel = require("../models/User");
 const ItemModel = require("./../models/Item");
+const CategoryModel = require("./../models/Category");
 
 const items = [
   {
@@ -13,8 +14,8 @@ const items = [
     price: 45,
     link: "",
     user: [],
-    // reaction:[],
-    // category: []
+    reaction: [],
+    category: [],
   },
   {
     name: "Dress",
@@ -26,8 +27,8 @@ const items = [
     link:
       "https://www.zarahome.com/ae/clothing-&-footwear/clothing/woman/tie-up-strap-nightdress-c1020286007p301743062.html?LGWCODE=4102312140102I2020;166187;8071&colorId=401&gclid=Cj0KCQiAzsz-BRCCARIsANotFgPRL83kfRSAHSua7j95sGWwQ5BsRQNFcAcOnExMaJ4l3dA3u25rse4aAtqNEALw_wcB",
     user: [],
-    //     reaction:[],
-    //     category: []
+    reaction: [],
+    category: [],
   },
   {
     name: "Shoes",
@@ -38,77 +39,111 @@ const items = [
     link:
       "https://www.global.jdsports.com/product/white-nike-air-force-1-low-womens/156841/?istCompanyId=d7964b0f-ef92-49e4-9bc0-0e04137e2cc0&istFeedId=f1067f40-0b48-4df7-a306-773ba81416bd&istItemId=iitlltptm&istBid=t&gclid=Cj0KCQiAzsz-BRCCARIsANotFgNtjJLNE_bHEZuPcAlEPLjfN3g12B6Ynz1Ej7Q3jUeLT_wlFTVARWkaAsG3EALw_wcB&gclsrc=aw.ds",
     user: [],
-    //     reaction:[],
-    //     category: []
-  },
-];
-
-const users = [
-  {
-    username: "echen",
-    firstName: "Elisa",
-    lastName: "Chen",
-    email: "elisachen@gmail.com",
-    password: "12345",
-    image:
-      "https://longcrendonfc.co.uk/wp-content/uploads/2018/10/facebook-profile-blank-face-300x225.jpeg",
-    items: [],
-    friends: [],
+    reaction: [],
+    category: [],
   },
   {
-    username: "kpavlova",
-    firstName: "Kate",
-    lastName: "Pavlova",
-    email: "kpavlova@gmail.com",
-    password: "56789",
+    name: "Balazer",
+    brand: "H&M",
+    description: "Super pretty blazer",
     image:
-      "https://longcrendonfc.co.uk/wp-content/uploads/2018/10/facebook-profile-blank-face-300x225.jpeg",
-    items: [],
-    friends: [],
+      "https://lp2.hm.com/hmgoepprod?set=source[/35/79/3579d4cdb84db6f7aafbf9e9f9280aa58b466bd2.jpg],origin[dam],category[ladies_blazerswaistcoats_blazers],type[DESCRIPTIVESTILLLIFE],res[y],hmver[1]&call=url[file:/product/main]",
+    price: 40,
+    link: "https://www2.hm.com/fr_fr/productpage.0781613006.html",
+    user: [],
+    reaction: [],
+    category: [],
   },
   {
-    username: "epfau",
-    firstName: "Edouard",
-    lastName: "Pfauwadel",
-    email: "epfauwadel@gmail.com",
-    password: "812892",
+    name: "Egide Sweater",
+    brand: "Sezane",
+    description: "Cream fluffy sweater",
     image:
-      "https://longcrendonfc.co.uk/wp-content/uploads/2018/10/facebook-profile-blank-face-300x225.jpeg",
-    items: [],
-    friends: [],
+      "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/zedxjjvugyhy5uywhci8.jpg",
+    price: 95,
+    link: "https://www.sezane.com/fr/product/gilet-egide/ecru",
+    user: [],
+    reaction: [],
+    category: [],
+  },
+  {
+    name: "Marcelle Dress",
+    brand: "Sezane",
+    description: "Black sparkly dress",
+    image:
+      "https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/y1xee4eiehozpfuiq658.jpg",
+    price: 95,
+    link: "https://www.sezane.com/fr/product/robe-marcelle/noir",
+    user: [],
+    reaction: [],
+    category: [],
+  },
+  {
+    name: "Cargo pants",
+    brand: "H&M",
+    description: "Men's pants with cargo pockets",
+    image:
+      "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F6e%2F29%2F6e29512d44f076786945d5b732af5ae8237f8e3a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_trousers_joggers%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+    price: 30,
+    link: "https://www2.hm.com/fr_fr/productpage.0606395023.html",
+    user: [],
+    reaction: [],
+    category: [],
+  },
+  {
+    name: "Kyrie 7",
+    brand: "Nike",
+    description: "Basketball kicks",
+    image:
+      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/e7634285-ad44-455e-83ab-bfcabfc72392/chaussure-de-basketball-kyrie-7-WTN4WG.jpg",
+    price: 150,
+    link:
+      "https://www.nike.com/fr/t/chaussure-de-basketball-kyrie-7-WTN4WG/CQ9326-001",
+    user: [],
+    reaction: [],
+    category: [],
+  },
+  {
+    name: "kid's puffer coat",
+    brand: "H&M",
+    description: "Pink puffer coat for kids",
+    image:
+      "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fe8%2F71%2Fe8719ba5fe267658eca2bf67ee787cbd2449ba99.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_outdoor%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+    price: 35,
+    link: "https://www2.hm.com/fr_fr/productpage.0869297001.html",
+    user: [],
+    reaction: [],
+    category: [],
   },
 ];
 
 ItemModel.deleteMany()
   .then(async () => {
-    //insert robots in db
+    const categories = await CategoryModel.find();
+    const users = await UserModel.find();
+
+    function getRandomCat() {
+      return Math.floor(Math.random() * Math.floor(categories.length));
+    }
+    function getRandomUser() {
+      return Math.floor(Math.random() * Math.floor(users.length));
+    }
+
+    for (let i = 0; i < items.length; i++) {
+      items[i].user = [users[getRandomUser()]._id];
+      items[i].category = categories[getRandomCat()]._id;
+    }
+
+    console.log(items);
+
     await ItemModel.insertMany(items);
-    console.log(`ok: ${items.length} items has been inserted`);
+    console.log(`ok: ${items.length} items have been inserted`);
   })
   .catch((err) => {
     console.log(err);
   });
 
-UserModel.deleteMany()
-  .then(async () => {
-    await UserModel.insertMany(users);
-    console.log(`ok: ${users.length} items has been inserted`);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-async function getUserIds() {
-  const usersInDb = await UserModel.find();
-  const itemsInDb = await ItemModel.find();
-  itemsInDb.forEach((item) => {
-    item.user.push(item.user);
-    console.log(item.user);
-  });
-}
-
-getUserIds();
-
+//FROM FRANK
 // usersInDb.forEach((user,i) => {
 //   user.friends.push(usersInDb[i+1]._id);
 //   user.save();

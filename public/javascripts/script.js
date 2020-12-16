@@ -1,4 +1,4 @@
-const itemsApi = new APIHandler("http://localhost:5000");
+const itemsApi = new APIHandler();
 
 const fullItemList = document.getElementById("item-list-all");
 
@@ -55,10 +55,10 @@ function displayItems() {
       console.log(deleteButton);
       deleteButton.forEach(
         (btn) =>
-        (btn.onclick = (evt) => {
-          console.log("hello");
-          deleteItem(evt);
-        })
+          (btn.onclick = (evt) => {
+            console.log("hello");
+            deleteItem(evt);
+          })
       );
     })
     .catch((err) => {

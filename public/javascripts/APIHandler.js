@@ -1,24 +1,25 @@
 class APIHandler {
   constructor(baseUrl) {
     this.BASE_URL = baseUrl;
+    this.service = axios.create({
+      baseURL: baseUrl,
+    });
   }
 
   getAllItems() {
-    return axios.get(`${this.BASE_URL}/items/api`);
+    return this.service.get(`/items/api`);
   }
 
   getRouletteItem() {
-    return axios.get(`${this.BASE_URL}/roulette/api`);
+    return this.service.get(`/roulette/api`);
   }
 
-  getOneItem() {}
-
-  createOneItem() {}
-
-  updateOneItem() {}
+  saveRouletteLike(itemId) {
+    return this.service.get("/roulette/like/" + itemId);
+  }
 
   deleteOneItem(itemId) {
-    return axios.delete(`${this.BASE_URL}/items/api/delete/` + itemId);
+    return this.service.delete(`/items/api/delete/` + itemId);
   }
 }
 

@@ -15,7 +15,7 @@ async function insertTestCategories() {
     await CategoryModel.deleteMany();
     const inserted = await CategoryModel.insertMany(categories);
     console.log(
-      `seed categories done : ${inserted.length} documents inserted !`
+      `seed categories done : ${inserted.length} categories inserted !`
     );
   } catch (err) {
     console.error(err);

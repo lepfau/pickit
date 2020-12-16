@@ -12,18 +12,55 @@ router.get("/", async (req, res, next) => {
 
 router.get("/api", async function (req, res) {
   const currentUser = await UserModel.findOne(req.session.currentUser._id);
-  console.log(currentUser);
+  // console.log(currentUser);
   try {
     res.status(200).json(
       await ItemModel.findOne({
         $and: [
           { user: { $in: currentUser.friends } },
-          { reaction: { $nin: [currentUser._id] } },
+          { "reaction.userReacting": { $nin: currentUser._id } },
         ],
       })
     );
   } catch (err) {
     res.status(500).json(err.message);
+  }
+});
+
+router.get("/like/:itemId", async (req, res, next) => {
+  try {
+    const reaction = {
+      userReacting: req.session.currentUser._id,
+      reaction: "like",
+    };
+    // res.json(
+    //   await ItemModel.update(
+    //     { _id: req.params.itemId },
+    //     { $push: { reaction: reaction } },
+    //     done
+    //   )
+    // );
+    const itemToUpdate = await ItemModel.findById(req.params.itemId);
+    itemToUpdate.reaction.push(reaction);
+    itemToUpdate.save();
+    res.redirect("/roulette");
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/dislike/:itemId", async (req, res, next) => {
+  try {
+    const reaction = {
+      userReacting: req.session.currentUser._id,
+      reaction: "dislike",
+    };
+    const itemToUpdate = await ItemModel.findById(req.params.itemId);
+    itemToUpdate.reaction.push(reaction);
+    itemToUpdate.save();
+    res.redirect("/roulette");
+  } catch (err) {
+    next(err);
   }
 });
 

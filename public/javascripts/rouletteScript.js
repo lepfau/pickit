@@ -1,4 +1,4 @@
-const rouletteAPI = new APIHandler("http://localhost:5000");
+const rouletteAPI = new APIHandler();
 
 const rouletteBrand = document.getElementById("roulette-brand");
 const roulettePrice = document.getElementById("roulette-price");
@@ -11,12 +11,6 @@ const dislikeBtn = document.getElementById("dislike-btn");
 
 window.addEventListener("load", () => {
   renderRoulette();
-  likeBtn.onclick = () => {
-    likeBtnEventListener();
-  };
-  dislikeBtn.onclick = () => {
-    dislikeBtnEventListener();
-  };
 });
 
 function renderRoulette() {
@@ -30,32 +24,36 @@ function renderRoulette() {
       rouletteName.innerHTML = `${item.name}`;
       rouletteImage.src = `${item.image}`;
       rouletteLink.href = `${item.link}`;
-      likeBtn.setAttribute("item-id", item._id);
-      dislikeBtn.setAttribute("item-id", item._id);
+      likeBtn.setAttribute("item-id", `${item._id}`);
+      dislikeBtn.setAttribute("item-id", `${item._id}`);
+      likeBtn.href = `/roulette/like/${item._id}`;
+      dislikeBtn.href = `/roulette/dislike/${item._id}`;
     })
     .catch((err) => {
       console.log(err);
     });
 }
 
-async function likeBtnEventListener() {
-  //   const id = evt.target.getAttribute("item-id");
-  //   const itemToModify = await ItemModel.findById(id);
-  try {
-    renderRoulette();
-    // itemToModify.update(); // add reaction
-    // TBD: SAVE USERID + "LIKE" TO ITEM DATABASE
-  } catch (err) {
-    console.error(err);
-  }
-}
+// async function likeBtnEventListener() {
+//   likeBtn.onclick = async (evt) => {
+//     const itemId = await evt.target.getAttribute("item-id");
+//     console.log("you've clicked on the like button");
+//     try {
+//       rouletteAPI.saveRouletteLike(itemId);
+//       rouletteAPI.getRouletteItem();
+//       renderRoulette();
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   };
+// }
 
-async function dislikeBtnEventListener() {
-  //   const id = evt.target.getAttribute("item-id");
-  try {
-    renderRoulette();
-    // TBD: SAVE USERID + "DISLIKE" TO ITEM DATABASE
-  } catch (err) {
-    console.error(err);
-  }
-}
+// async function dislikeBtnEventListener() {
+//   //   const id = evt.target.getAttribute("item-id");
+//   try {
+//     renderRoulette();
+//     // TBD: SAVE USERID + "DISLIKE" TO ITEM DATABASE
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
