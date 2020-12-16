@@ -62,22 +62,18 @@ app.use(flash());
 // expose flash message to the hbs templates, if any flash-message is defined
 app.use(require("./middlewares/exposeFlashMessage"));
 
+if (process.env.NODE_ENV !== "production") {
+  app.use(async (req, res, next) => {
+    const loggedInUser = await UserModel.findOne();
+    req.session.currentUser = loggedInUser;
+    next();
+  });
+}
 // expose login status to the hbs templates
 app.use(require("./middlewares/exposeLoginStatus"));
 
 // default value for title local
 app.locals.title = "Pickit";
-
-// if (process.env.NODE_ENV !== "production") {
-// app.use(async (req, res, next) => {
-//   res.locals.toto = "Hello my name is Toto";
-//   const loggedInUser = await UserModel.findOne();
-//   console.log(req.session);
-//   req.session.currentUser = loggedInUser;
-//   res.locals.isLoggedIn = true;
-//   next();
-// });
-// }
 
 const index = require("./routes/index");
 const itemRouter = require("./routes/item");

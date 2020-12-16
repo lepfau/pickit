@@ -2,13 +2,12 @@ const express = require("express");
 const router = express.Router();
 const UserModel = require("./../models/User");
 const bcrypt = require("bcrypt");
-const uploader = require("./../config/cloudinary")
+const uploader = require("./../config/cloudinary");
 
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
 router.get("/signin", async (req, res) => {
   res.render("signIn");
 });
-
 
 router.post("/signin", async (req, res, next) => {
   // DO something
@@ -40,19 +39,14 @@ router.post("/signin", async (req, res, next) => {
       // console.log(req.session, "before defining current user");
       req.session.currentUser = userObject; // Stores the user in the session (data server side + a cookie is sent client side)
 
-      // https://www.youtube.com/watch?v=nvaE_HCMimQ
-      // https://www.youtube.com/watch?v=OFRjZtYs3wY
-
       req.flash("success", "Successfully logged in...");
       res.redirect("/items");
     }
   }
 });
 
-
-
-router.post('/signin', (req, res, next) => {
-  console.log('SESSION =====> ', req.session);
+router.post("/signin", (req, res, next) => {
+  console.log("SESSION =====> ", req.session);
 
   // everything else stays untouched
 });
@@ -62,7 +56,6 @@ router.get("/signup", async (req, res) => {
 });
 
 router.post("/signup", uploader.single("image"), async (req, res, next) => {
-
   try {
     const newUser = { ...req.body };
     const foundUser = await UserModel.findOne({ username: newUser.username });
@@ -83,7 +76,5 @@ router.post("/signup", uploader.single("image"), async (req, res, next) => {
     next(error);
   }
 });
-
-
 
 module.exports = router;

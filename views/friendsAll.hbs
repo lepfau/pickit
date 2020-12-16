@@ -11,17 +11,17 @@
 
 
 
-
-{{#each users}}
-<section class="user-card">
-    <div class="user-name">
-        <p>{{firstName}}<br> {{lastName}}</p>
-    </div>
-    <div class="user-image">
-        <img src="{{image}}" alt="{{firstName}} {{lastName}}">
-    </div>
-    <a href="/friends/add">Add</a>
-</section>
-{{/each}}
-
+<div class="allusers">
+    {{#each users}}
+    <section class="user-card">
+        <div class="user-name">
+            <p>{{firstName}}<br> {{lastName}}</p>
+        </div>
+        <div class="user-image">
+            <img src="{{image}}" alt="{{firstName}} {{lastName}}">
+        </div>
+        <a href="/friends/add/{{_id}}">Add</a>
+    </section>
+    {{/each}}
+</div>
 {{>emailForm}}
