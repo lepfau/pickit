@@ -3,10 +3,6 @@ const itemsApi = new APIHandler();
 const fullItemList = document.getElementById("item-list-all");
 
 
-
-
-
-
 // async function getAllItems(callback) {
 //   try {
 //     const res = await service.get("/items");
