@@ -14,7 +14,8 @@ const items = [
     price: 45,
     link: "",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -27,7 +28,8 @@ const items = [
     link:
       "https://www.zarahome.com/ae/clothing-&-footwear/clothing/woman/tie-up-strap-nightdress-c1020286007p301743062.html?LGWCODE=4102312140102I2020;166187;8071&colorId=401&gclid=Cj0KCQiAzsz-BRCCARIsANotFgPRL83kfRSAHSua7j95sGWwQ5BsRQNFcAcOnExMaJ4l3dA3u25rse4aAtqNEALw_wcB",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -39,7 +41,8 @@ const items = [
     link:
       "https://www.global.jdsports.com/product/white-nike-air-force-1-low-womens/156841/?istCompanyId=d7964b0f-ef92-49e4-9bc0-0e04137e2cc0&istFeedId=f1067f40-0b48-4df7-a306-773ba81416bd&istItemId=iitlltptm&istBid=t&gclid=Cj0KCQiAzsz-BRCCARIsANotFgNtjJLNE_bHEZuPcAlEPLjfN3g12B6Ynz1Ej7Q3jUeLT_wlFTVARWkaAsG3EALw_wcB&gclsrc=aw.ds",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -51,7 +54,8 @@ const items = [
     price: 40,
     link: "https://www2.hm.com/fr_fr/productpage.0781613006.html",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -63,7 +67,8 @@ const items = [
     price: 95,
     link: "https://www.sezane.com/fr/product/gilet-egide/ecru",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -75,7 +80,8 @@ const items = [
     price: 95,
     link: "https://www.sezane.com/fr/product/robe-marcelle/noir",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -87,7 +93,8 @@ const items = [
     price: 30,
     link: "https://www2.hm.com/fr_fr/productpage.0606395023.html",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -100,7 +107,8 @@ const items = [
     link:
       "https://www.nike.com/fr/t/chaussure-de-basketball-kyrie-7-WTN4WG/CQ9326-001",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
   {
@@ -112,7 +120,8 @@ const items = [
     price: 35,
     link: "https://www2.hm.com/fr_fr/productpage.0869297001.html",
     user: [],
-    reaction: [],
+    likes: [],
+    dislikes: [],
     category: [],
   },
 ];

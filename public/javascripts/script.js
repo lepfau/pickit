@@ -45,8 +45,8 @@ function displayItems() {
             </div>   
         </div>
         <div class="bottom-part"> 
-        <i class="fas fa-heart"><br><span>12</span></i>
-        <i class="fas fa-thumbs-down"><br><span>5</span></i>
+        <i class="fas fa-heart"><br><span>${item.likes.length}</span></i>
+        <i class="fas fa-thumbs-down"><br><span>${item.dislikes.length}</span></i>
         </div>
         <br> <hr>
         `;

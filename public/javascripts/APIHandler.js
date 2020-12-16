@@ -24,6 +24,10 @@ class APIHandler {
     return this.service.get("/roulette/like/" + itemId);
   }
 
+  saveRouletteDislike(itemId) {
+    return this.service.get("/roulette/dislike/" + itemId);
+  }
+
   //FRIEND PART
   getFriends() {
     return this.service.get("/friends/friends/api");

@@ -15,15 +15,8 @@ const itemSchema = new Schema({
   price: Number,
   link: String,
   user: [{ type: Schema.Types.ObjectId, ref: "user" }],
-  reaction: [
-    {
-      userReacting: { type: Schema.Types.ObjectId, ref: "user" },
-      reaction: {
-        type: String,
-        enum: ["like", "dislike"],
-      },
-    },
-  ],
+  likes: [{ type: Schema.Types.ObjectId, ref: "user" }],
+  dislikes: [{ type: Schema.Types.ObjectId, ref: "user" }],
   category: { type: Schema.Types.ObjectId, ref: "category" },
 });
 

@@ -18,7 +18,8 @@ router.get("/api", async function (req, res) {
       await ItemModel.findOne({
         $and: [
           { user: { $in: currentUser.friends } },
-          { "reaction.userReacting": { $nin: currentUser._id } },
+          { likes: { $nin: currentUser._id } },
+          { dislikes: { $nin: currentUser._id } },
         ],
       })
     );
@@ -29,10 +30,6 @@ router.get("/api", async function (req, res) {
 
 router.get("/like/:itemId", async (req, res, next) => {
   try {
-    const reaction = {
-      userReacting: req.session.currentUser._id,
-      reaction: "like",
-    };
     // res.json(
     //   await ItemModel.update(
     //     { _id: req.params.itemId },
@@ -41,7 +38,7 @@ router.get("/like/:itemId", async (req, res, next) => {
     //   )
     // );
     const itemToUpdate = await ItemModel.findById(req.params.itemId);
-    itemToUpdate.reaction.push(reaction);
+    itemToUpdate.likes.push({ _id: req.session.currentUser._id });
     itemToUpdate.save();
     res.redirect("/roulette");
   } catch (err) {
@@ -51,12 +48,8 @@ router.get("/like/:itemId", async (req, res, next) => {
 
 router.get("/dislike/:itemId", async (req, res, next) => {
   try {
-    const reaction = {
-      userReacting: req.session.currentUser._id,
-      reaction: "dislike",
-    };
     const itemToUpdate = await ItemModel.findById(req.params.itemId);
-    itemToUpdate.reaction.push(reaction);
+    itemToUpdate.dislikes.push({ _id: req.session.currentUser._id });
     itemToUpdate.save();
     res.redirect("/roulette");
   } catch (err) {
