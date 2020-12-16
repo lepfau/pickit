@@ -34,13 +34,12 @@ class APIHandler {
   }
 
   addOneFriend(friendId) {
-    return this.service.post("/friends/api/add/", { id: friendId })
+    return this.service.post("/friends/api/add/", { id: friendId });
   }
 
   deleteOneFriend(friendId) {
-    return this.service.post("/friends/api/delete", { id: friendId })
+    return this.service.post("/friends/api/delete", { id: friendId });
   }
-
 }
 
 //COPY PASTA FROM LABS SHH

@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
   });
 });
 
-
 // router.get("/api", async function (req, res) {
 //   try {
 //     res
@@ -31,51 +30,59 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
-
-
 router.get("/friends/api", async function (req, res) {
-  // const friendsOfCurrentUser = await UserModel.find({ _id: req.session.currentUser.friends });
-
-  // console.log(friendsOfCurrentUser)
   try {
     res
       .status(200)
-      .json(
-        await UserModel.find({ _id: req.session.currentUser.friends })
-      )
-
+      .json(await UserModel.find({ _id: req.session.currentUser.friends }));
   } catch (err) {
     res.status(500).json(err.message);
   }
 });
 
-
 router.post("/api/delete", async function (req, res) {
-  console.log(req.body)
+  console.log(req.body);
   try {
-    res
-      .json(
-        await UserModel.findOneAndUpdate({ _id: req.session.currentUser._id }, { $pull: { friends: req.body.id } })
+    res.json(
+      await UserModel.findOneAndUpdate(
+        { _id: req.session.currentUser._id },
+        { $pull: { friends: req.body.id } }
       )
+    );
   } catch (err) {
-    res.status(500).json(err.message)
+    res.status(500).json(err.message);
   }
-})
-// router.get("/nonfriends/api", async function (req, res) {
-//   try {
-//     res
-//       .status(200)
-//       .json(
-//         await UserModel.find({
-//           _id: { $ne: [req.session.currentUser._id, req.session.currentUser.friends._id] }
-//         })
-//       );
-//   } catch (err) {
-//     res.status(500).json(err.message);
-//   }
-// });
+});
 
-<<<<<<< HEAD
+router.get("/nonfriends/api", async function (req, res) {
+  const currentUser = await UserModel.findById(req.session.currentUser._id);
+  currentUser.friends.push(req.session.currentUser._id);
+  console.log(currentUser.friends);
+  try {
+    res.status(200).json(
+      await UserModel.find({
+        _id: { $nin: currentUser.friends },
+      })
+    );
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
+router.post("/api/add", async function (req, res) {
+  console.log(req.body);
+  try {
+    res.json(
+      await UserModel.findOneAndUpdate(
+        { _id: req.session.currentUser._id },
+        { $push: { friends: req.body.id } }
+      )
+    );
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+});
+
 // router.patch("/nonfriends/api/add", async function (req, res) {
 //   try {
 //     res
@@ -84,22 +91,6 @@ router.post("/api/delete", async function (req, res) {
 //       )
 //   }
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // router.get("/search", async (req, res, next) => {
 //   // req.body (posted infos)
@@ -116,8 +107,6 @@ router.post("/api/delete", async function (req, res) {
 //   }
 // });
 
-
-
 // router.get("/add/:id", async (req, res, next) => {
 //   const friend = await UserModel.findById(req.params.id);
 //   const currentUser = await UserModel.findById(req.session.currentUser._id);
@@ -126,19 +115,5 @@ router.post("/api/delete", async function (req, res) {
 //   console.log(currentUser);
 //   res.redirect("/friends")
 // });
-=======
-router.get("/add/:id", async (req, res, next) => {
-  const friend = await UserModel.findById(req.params.id);
-  const currentUser = await UserModel.findById(req.session.currentUser._id);
-  currentUser.friends.push(friend);
-  currentUser.save();
-  console.log(currentUser);
-<<<<<<< HEAD
-  res.redirect("/friends");
-=======
-  res.redirect("/friends")
->>>>>>> 8689323c0fd5f631704976f7a7cb4a1eda076818
-});
->>>>>>> 78c6fcddeaacd098f8031e46b45392b390a179c0
 
 module.exports = router;
