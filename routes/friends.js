@@ -7,8 +7,13 @@ router.get("/", async (req, res) => {
   const users = await UserModel.find({
     _id: { $ne: [req.session.currentUser._id] },
   });
-  res.render("friendsAll", { users, script: "script" });
+  res.render("friendsAll", { users, script: "friendsScript" });
 });
+
+
+
+
+
 
 router.get("/search", async (req, res, next) => {
   // req.body (posted infos)
@@ -25,13 +30,15 @@ router.get("/search", async (req, res, next) => {
   }
 });
 
+
+
 router.get("/add/:id", async (req, res, next) => {
   const friend = await UserModel.findById(req.params.id);
   const currentUser = await UserModel.findById(req.session.currentUser._id);
   currentUser.friends.push(friend);
   currentUser.save();
   console.log(currentUser);
-  res.render("friendsAll", { users, script: "script" });
+  res.redirect("/friends")
 });
 
 module.exports = router;

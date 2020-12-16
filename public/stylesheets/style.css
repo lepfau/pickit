@@ -425,3 +425,7 @@ select {
   align-items: center;
   justify-content: center;
 }
+
+.addBtn {
+  visibility: visible;
+}
