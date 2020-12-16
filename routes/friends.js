@@ -31,7 +31,7 @@ router.get("/add/:id", async (req, res, next) => {
   currentUser.friends.push(friend);
   currentUser.save();
   console.log(currentUser);
-  res.render("friendsAll", { users, script: "script" });
+  res.redirect("/friends");
 });
 
 module.exports = router;
