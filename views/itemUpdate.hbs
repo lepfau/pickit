@@ -1,30 +1,30 @@
-<form method="POST" action="/items/update/{{_id}}" enctype="multipart/form-data" class="form-update">
+<form method="POST" action="/items/update/{{item._id}}" enctype="multipart/form-data" class="form-update">
     <h2 class="subtitle"> Update an item</h1>
 
         <div class="fullInput">
             <label for="name">Item Name <i class="fas fa-tag"></i></label>
-            <input type="text" name="name" value="{{name}}">
+            <input type="text" name="name" value="{{item.name}}">
         </div>
 
         <div class="fullInput">
             <label for="brand">Brand <i class="far fa-copyright"></i></label>
-            <input type="text" name="brand" value="{{brand}}">
+            <input type="text" name="brand" value="{{item.brand}}">
         </div>
 
         <div class="fullInput">
             <label for="description">Description <i class="fas fa-info-circle"></i></label>
-            <input type="text" name="description" value="{{description}}">
+            <input type="text" name="description" value="{{item.description}}">
         </div>
 
         <div class="fullInput">
             <label for="category">Category <i class="fas fa-box-open"></i></label>
             <select id="" name="category">
-                {{#if category}}
-                <option value="-1" disabled selected>{{category.name}}</option>
+                {{#if itemcat}}
+                <option value="-1" disabled selected>{{itemcat.name}}</option>
                 {{else}}
                 <option value="-1" disabled selected>Choose a category...</option>
                 {{/if}}
-                {{#each categories}}
+                {{#each category}}
                 <option value="{{this.name}}">{{this.name}}</option>
                 {{/each}}
 
@@ -33,16 +33,16 @@
 
         <div class="fullInput">
             <label for="price">Price <i class="fas fa-money-bill-wave"></i></label>
-            <input type="text" name="price" value="{{price}}">
+            <input type="text" name="price" value="{{item.price}}">
         </div>
 
         <div class="fullInput">
             <label for="link">Website link <i class="fas fa-link"></i></label>
-            <input type="text" name="link" value="{{link}}">
+            <input type="text" name="link" value="{{item.link}}">
         </div>
 
         <div class="fullInput">
-            <img src="{{image}}" alt="{{brand}} {{name}} image">
+            <img src="{{item.image}}" alt="{{item.brand}} {{item.name}} image">
             <label for="image">Update image <i class="fas fa-cloud-upload-alt"></i></label>
             <input type="file" name="image">
         </div>

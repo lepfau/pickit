@@ -39,14 +39,21 @@ router.get("/create", async (req, res) => {
   res.render("itemCreate", { categories });
 });
 
-router.get("/:name", async (req, res) => {
-  const item = await ItemModel.findOne({ name: req.params.name });
+router.get("/:id", async (req, res) => {
+  const item = await ItemModel.findById(req.params.id);
   res.render("itemOneDetail", item);
 });
 
 router.get("/update/:id", async (req, res) => {
+  const item = await ItemModel.findById(req.params.id);
+  const itemCategory = await CategoryModel.findById(item.category);
+  const categories = await CategoryModel.find();
   try {
-    res.render("itemUpdate", await ItemModel.findById(req.params.id));
+    res.render("itemUpdate", {
+      item: item,
+      itemcat: itemCategory,
+      category: categories,
+    });
   } catch (err) {
     console.log(err);
   }
@@ -83,10 +90,15 @@ router.post("/create", uploader.single("image"), async (req, res) => {
 
 // will need to be changed for :id and AJAX
 
-router.post("/update/:id", uploader.single("image"), async (req, res) => {
+router.post("/update/:id", uploader.single("image"), async (req, res, next) => {
   try {
     const itemToUpdate = { ...req.body };
     if (req.file) itemToUpdate.image = req.file.path;
+    const categoryId = await CategoryModel.findOne({
+      name: itemToUpdate.category,
+    });
+    console.log(categoryId._id);
+    itemToUpdate.category = { _id: categoryId._id };
 
     await ItemModel.findByIdAndUpdate(req.params.id, itemToUpdate);
     res.redirect("/items");

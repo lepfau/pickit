@@ -2,7 +2,6 @@ const itemsApi = new APIHandler();
 
 const fullItemList = document.getElementById("item-list-all");
 
-
 // async function getAllItems(callback) {
 //   try {
 //     const res = await service.get("/items");
@@ -36,7 +35,7 @@ function displayItems() {
                 <div class="item-brand">${item.brand} </div>
                 <div class="item-name">${item.name} </div>
                 <div class="item-price"> ${item.price} € </div>
-                <div> <a href="/items/${item.name}">See more..</a> </div>
+                <div> <a href="/items/${item._id}">See more..</a> </div>
                 </div>
              </div>
              
@@ -56,10 +55,10 @@ function displayItems() {
       console.log(deleteButton);
       deleteButton.forEach(
         (btn) =>
-        (btn.onclick = (evt) => {
-          console.log("hello");
-          deleteItem(evt);
-        })
+          (btn.onclick = (evt) => {
+            console.log("hello");
+            deleteItem(evt);
+          })
       );
     })
     .catch((err) => {
@@ -77,5 +76,3 @@ async function deleteItem(evt) {
     console.error(err);
   }
 }
-
-
