@@ -426,7 +426,12 @@ select {
   justify-content: center;
 }
 
+<<<<<<< HEAD
 #user-name {
   color: white;
   font-weight: bold;
+=======
+.addBtn {
+  visibility: visible;
+>>>>>>> 78c6fcddeaacd098f8031e46b45392b390a179c0
 }
