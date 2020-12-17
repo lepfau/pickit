@@ -12,16 +12,27 @@ router.get("/", async (req, res, next) => {
 
 router.get("/api", async function (req, res) {
   const currentUser = await UserModel.findOne(req.session.currentUser._id);
+  const rouletteItem = await ItemModel.findOne({
+    $and: [
+      { user: { $in: currentUser.friends } },
+      { likes: { $nin: currentUser._id } },
+      { dislikes: { $nin: currentUser._id } },
+    ],
+  });
+  const rouletteItemUser = await UserModel.findById(rouletteItem.user);
+  console.log(rouletteItem);
+  console.log(rouletteItemUser);
   // console.log(currentUser);
   try {
     res.status(200).json(
-      await ItemModel.findOne({
-        $and: [
-          { user: { $in: currentUser.friends } },
-          { likes: { $nin: currentUser._id } },
-          { dislikes: { $nin: currentUser._id } },
-        ],
-      })
+      { item: rouletteItem, user: rouletteItemUser }
+      // await ItemModel.findOne({
+      //   $and: [
+      //     { user: { $in: currentUser.friends } },
+      //     { likes: { $nin: currentUser._id } },
+      //     { dislikes: { $nin: currentUser._id } },
+      //   ],
+      // })
     );
   } catch (err) {
     res.status(500).json(err.message);
