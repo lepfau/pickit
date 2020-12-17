@@ -8,7 +8,7 @@ const items = [
   {
     name: "Tshirt",
     brand: "Tommy Hilfiger",
-    description: "This is a Tshirt",
+    description: "The perfect t-shirt",
     image:
       "https://juniorcouture.com/images/tommy-hilfiger-boys-black-logo-t-shirt-p7381-27761_medium.jpg",
     price: 45,
@@ -21,7 +21,7 @@ const items = [
   {
     name: "Dress",
     brand: "Zara",
-    description: "This is a Dress",
+    description: "Slinky slip dress for going out",
     image:
       "https://static.zarahome.net/8/photos4/2020/I/4/1/p/1023/121/401/1023121401_1_1_2.jpg?t=1583403314506",
     price: 80,
@@ -35,7 +35,7 @@ const items = [
   {
     name: "Shoes",
     brand: "Nike",
-    description: "These are shoes",
+    description: "The coolest Nike kicks",
     image: "https://i8.amplience.net/i/jpl/jd_156841_a?qlt=92&w=750&h=531&v=1",
     price: 200,
     link:
@@ -46,9 +46,9 @@ const items = [
     category: [],
   },
   {
-    name: "Balazer",
+    name: "Blazer",
     brand: "H&M",
-    description: "Super pretty blazer",
+    description: "Classic black blazer for everyday wear",
     image:
       "https://lp2.hm.com/hmgoepprod?set=source[/35/79/3579d4cdb84db6f7aafbf9e9f9280aa58b466bd2.jpg],origin[dam],category[ladies_blazerswaistcoats_blazers],type[DESCRIPTIVESTILLLIFE],res[y],hmver[1]&call=url[file:/product/main]",
     price: 40,
@@ -119,6 +119,156 @@ const items = [
       "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fe8%2F71%2Fe8719ba5fe267658eca2bf67ee787cbd2449ba99.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bkids_girl8y_outdoor%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
     price: 35,
     link: "https://www2.hm.com/fr_fr/productpage.0869297001.html",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Sofabed",
+    brand: "Habitat",
+    description: "Beautiful sofa with a full-sized pullout bed",
+    image:
+      "https://cdn.habitat.fr/thumbnails/product/1097/1097829/box/1200/1200/80/fabric-3-seater-sofa-bed-grey_1097829.jpg",
+    price: 1599,
+    link: "https://www.habitat.eu/p/fabric-3-seater-sofa-bed-grey",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Ribbon Lamp",
+    brand: "Habitat",
+    description: "Modern design table lamp",
+    image:
+      "https://cdn.habitat.fr/thumbnails/product/1091/1091967/box/1200/1200/80/lampe-de-table-en-metal-noir-52-cm_1091967.jpg",
+    price: 105,
+    link: "https://www.habitat.fr/p/lampe-de-table-grand-modele-1",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Contrast Dress",
+    brand: "Zara",
+    description: "Slim fit midi dress",
+    image:
+      "https://static.zara.net/photos///2020/I/0/1/p/8758/517/701/2/w/1492/8758517701_1_1_1.jpg?ts=1608119394715",
+    price: 49.95,
+    link:
+      "https://www.zara.com/fr/en/contrast-dress-p08758517.html?v1=88243215&v2=1549286",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Cashmere Polo Sweater",
+    brand: "Zara",
+    description: "Non-dyed beige cashmere wool sweater",
+    image:
+      "https://static.zara.net/photos///2020/I/0/2/p/3039/301/251/62/w/1492/3039301251_1_1_1.jpg?ts=1604573291829",
+    price: 99,
+    link:
+      "https://www.zara.com/fr/en/cashmere-polo-collar-sweater-p03039301.html?v1=82075779&v2=1546882",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Projector",
+    brand: "Philips",
+    description: "Portable videoprojector for watchign movies anywhere",
+    image:
+      "https://image.darty.com/hifi_video/videoprojecteur-videoprojecteur/videoprojecteur_cinema/philips_neopix_prime_2_s2011264907094A_145018924.jpeg",
+    price: 200,
+    link:
+      "https://www.darty.com/nav/achat/hifi_video/videoprojecteur-videoprojecteur/videoprojecteur_cinema/philips_neopix_prime_2.html",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "The Frame TV",
+    brand: "Samsung",
+    description: "Beautiful design TV that looks like art",
+    image:
+      "https://image.darty.com/hifi_video/tous_ecrans_plats/qled/samsung_qe43ls03_s2003054800265A_144224267.jpeg",
+    price: 999,
+    link:
+      "https://www.darty.com/nav/achat/hifi_video/tous_ecrans_plats/qled/samsung_qe43ls03.html",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Home Cinema Projector",
+    brand: "Xiomi",
+    description: "Ultra HD projector for watching movies at home",
+    image:
+      "https://image.darty.com/hifi_video/videoprojecteur-videoprojecteur/videoprojecteur_cinema/xiaomi_miproj4k_n_s2010234875850A_093628021.jpeg",
+    price: 2499,
+    link:
+      "https://www.darty.com/nav/achat/hifi_video/videoprojecteur-videoprojecteur/videoprojecteur_cinema/xiaomi_miproj4k_n.html#dartyclic=PL_B_0_4875850",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Tulip Table",
+    brand: "Knoll",
+    description: "Classic Eero Saarinen marble table ",
+    image:
+      "https://www.conranshop.fr/media/catalog/product/cache/8a394d7302b6f57bd505c0072f6cff11/4/3/430999_1be7.jpg",
+    price: 9900,
+    link:
+      "https://www.conranshop.fr/saarinen-oval-244cm-arabescato-marble-white-base.html",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Wishbone chair",
+    brand: "Cherner",
+    description: "Wishbone chair made from one single piece of wood",
+    image:
+      "https://www.conranshop.fr/media/catalog/product/cache/8a394d7302b6f57bd505c0072f6cff11/6/1/617659_1_4_862f.jpg",
+    price: 1368,
+    link: "https://www.conranshop.fr/cherner-armchair-walnut.html",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Gioia Lamp",
+    brand: "The Socialite Family",
+    description: "Italian-designed table lamp",
+    image:
+      "https://media3.thesocialitefamily.com/fr/6267-thickbox_default/lampe-a-poser-gioia-bleu.jpg",
+    price: 390,
+    link:
+      "https://shop.thesocialitefamily.com/fr/736-lampe-a-poser-gioia-bleu-3760329010056.html",
+    user: [],
+    likes: [],
+    dislikes: [],
+    category: [],
+  },
+  {
+    name: "Cassette Sweater",
+    brand: "Atelier Camille",
+    description: "Alpaca sweater with fantasy detailing and ruffled collar",
+    image: "https://www.ateliercamille.com/content/uploads/2020/12/MG_6354.jpg",
+    price: 195,
+    link:
+      "https://www.ateliercamille.com/en/produit/pull-cassette-gris-chine/?attribute_pa_couleur=gris&attribute_pa_taille=0-34-36",
     user: [],
     likes: [],
     dislikes: [],
