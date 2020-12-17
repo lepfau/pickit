@@ -29,7 +29,7 @@ function renderRoulette() {
       } else {
         const item = respfromAPI.data.item;
         const user = respfromAPI.data.user;
-        rouletteItemUser.innerHTML = `Like it for ${user.firstName}?`;
+        rouletteItemUser.innerHTML = `Like it for <strong>${user.firstName}</strong>?`;
         rouletteItemUserImage.src = user.image;
         rouletteBrand.innerHTML = `${item.brand}`;
         roulettePrice.innerHTML = `${item.price} €`;

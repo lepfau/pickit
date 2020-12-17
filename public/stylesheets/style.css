@@ -413,9 +413,14 @@ select {
 }
 
 #roulette-image {
-  height: 250px;
-  width: auto;
+  max-height: 50vh;
+  max-width: 90vw;
   border: 1px solid lightgrey;
+}
+
+#roulettte-item-user-name {
+  font-size: 24px;
+  margin: 0px;
 }
 
 #roulette-brand {
@@ -434,10 +439,16 @@ select {
   padding-left: 40px;
   color: darkred;
 }
+#like-btn:active {
+  transform: translate(5px, 5px);
+}
 
 #dislike-btn {
   font-size: 8vh;
   padding-right: 40px;
+}
+#dislike-btn:active {
+  transform: translate(5px, 5px);
 }
 
 .roulette-items {
@@ -547,22 +558,43 @@ hr {
 
 #roulettte-item-user-image {
   width: auto;
-  height: 64px;
+  height: 40px;
   border-radius: 25px;
   margin-left: 15px;
 }
 
+#roulette-name {
+  font-size: 18px;
+  margin: 10px;
+}
 .roulette-friend {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 10px;
 }
 
 #roulette-brand {
+  font-size: 28px;
   margin: 0px;
 }
 
 #roulette-price {
+  font-size: 28px;
   margin: 0px;
+  font-weight: bold;
+}
+
+.roulette-item-info {
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+}
+
+#roulette-link {
+  background: #133d51;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 5px 2px 2px gray;
 }
