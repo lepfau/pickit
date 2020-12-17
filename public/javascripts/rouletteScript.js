@@ -32,7 +32,7 @@ function renderRoulette() {
         rouletteItemUser.innerHTML = `Like it for ${user.firstName}?`;
         rouletteItemUserImage.src = user.image;
         rouletteBrand.innerHTML = `${item.brand}`;
-        roulettePrice.innerHTML = `${item.price}`;
+        roulettePrice.innerHTML = `${item.price} €`;
         rouletteName.innerHTML = `${item.name}`;
         rouletteImage.src = `${item.image}`;
         rouletteLink.href = `${item.link}`;

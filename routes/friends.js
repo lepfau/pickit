@@ -69,6 +69,24 @@ router.get("/nonfriends/api", async function (req, res) {
   }
 });
 
+router.get("/search/api", async (req, res, next) => {
+  // req.body (posted infos)
+  // req.params (variable/dynamique part of a route path)
+  // req.query (access infos from for with get method)
+  try {
+    console.log(req.query); // query strings
+    const exp = new RegExp(req.query.search); // creating a regular expression
+    const matchedUsers = await UserModel.find({ username: { $regex: exp } });
+    console.log(matchedUsers)
+
+    res.json({
+      matchedUsers
+    })
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.post("/api/add", async function (req, res) {
   console.log(req.body);
   try {
@@ -92,20 +110,7 @@ router.post("/api/add", async function (req, res) {
 //   }
 // })
 
-// router.get("/search", async (req, res, next) => {
-//   // req.body (posted infos)
-//   // req.params (variable/dynamique part of a route path)
-//   // req.query (access infos from for with get method)
-//   try {
-//     console.log(req.query); // query strings
-//     const exp = new RegExp(req.query.search); // creating a regular expression
-//     const matchedUsers = await UserModel.find({ username: { $regex: exp } });
 
-//     res.render("friendsAll", { users: matchedUsers });
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 // router.get("/add/:id", async (req, res, next) => {
 //   const friend = await UserModel.findById(req.params.id);

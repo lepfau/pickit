@@ -6,6 +6,7 @@ const nonFriendsList = document.getElementById("nonfriends");
 window.addEventListener("load", () => {
   displayFriends();
   displayNonFriends();
+  searchUser();
 });
 
 function displayFriends() {
@@ -47,6 +48,9 @@ function displayFriends() {
       console.log(err);
     });
 }
+
+
+
 
 function displayNonFriends() {
   usersApi
@@ -105,6 +109,12 @@ async function AddFriendOfUser(evt) {
   } catch (err) {
     console.error(err);
   }
+}
+
+function searchUser() {
+  usersApi.searchUsers();
+  displayFriends();
+  displayNonFriends()
 }
 
 function hideDeleteButton(evt) {

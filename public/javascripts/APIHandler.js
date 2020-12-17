@@ -44,4 +44,8 @@ class APIHandler {
   deleteOneFriend(friendId) {
     return this.service.post("/friends/api/delete", { id: friendId });
   }
+
+  searchUsers() {
+    return this.service.get("/friends/search/api")
+  }
 }
