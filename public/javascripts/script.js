@@ -35,7 +35,7 @@ function displayItems() {
                 <div class="item-brand">${item.brand} </div>
                 <div class="item-name">${item.name} </div>
                 <div class="item-price"> ${item.price} € </div>
-                <div> <a href="/items/${item._id}">See more..</a> </div>
+                <div id ="see-more-link"> <a href="/items/${item._id}">See more..</a> </div>
                 </div>
              </div>
              

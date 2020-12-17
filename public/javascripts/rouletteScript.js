@@ -1,5 +1,10 @@
 const rouletteAPI = new APIHandler();
 
+const rouletteItemUser = document.getElementById("roulettte-item-user-name");
+const rouletteItemUserImage = document.getElementById(
+  "roulettte-item-user-image"
+);
+
 const rouletteBrand = document.getElementById("roulette-brand");
 const roulettePrice = document.getElementById("roulette-price");
 const rouletteName = document.getElementById("roulette-name");
@@ -17,8 +22,11 @@ function renderRoulette() {
   rouletteAPI
     .getRouletteItem()
     .then((respfromAPI) => {
-      console.log(respfromAPI.data);
-      const item = respfromAPI.data;
+      const item = respfromAPI.data.item;
+      const user = respfromAPI.data.user;
+      // console.log(user);
+      rouletteItemUser.innerHTML = `Like it for ${user.firstName}?`;
+      rouletteItemUserImage.src = user.image;
       rouletteBrand.innerHTML = `${item.brand}`;
       roulettePrice.innerHTML = `${item.price}`;
       rouletteName.innerHTML = `${item.name}`;
@@ -33,27 +41,3 @@ function renderRoulette() {
       console.log(err);
     });
 }
-
-// async function likeBtnEventListener() {
-//   likeBtn.onclick = async (evt) => {
-//     const itemId = await evt.target.getAttribute("item-id");
-//     console.log("you've clicked on the like button");
-//     try {
-//       rouletteAPI.saveRouletteLike(itemId);
-//       rouletteAPI.getRouletteItem();
-//       renderRoulette();
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
-// }
-
-// async function dislikeBtnEventListener() {
-//   //   const id = evt.target.getAttribute("item-id");
-//   try {
-//     renderRoulette();
-//     // TBD: SAVE USERID + "DISLIKE" TO ITEM DATABASE
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
