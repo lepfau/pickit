@@ -69,6 +69,7 @@ app.use(require("./middlewares/exposeFlashMessage"));
 //     next();
 //   });
 // }
+
 // expose login status to the hbs templates
 app.use(require("./middlewares/exposeLoginStatus"));
 

@@ -5,6 +5,11 @@ const ItemModel = require("./../models/Item");
 const CategoryModel = require("./../models/Category");
 const uploader = require("./../config/cloudinary");
 
+const protectRoute = require("./../middlewares/protectRoute")
+
+router.use(protectRoute);
+
+
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
 router.get("/", async (req, res) => {
   res.render("itemsAll", {

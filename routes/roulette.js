@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const ItemModel = require("./../models/Item");
 const UserModel = require("./../models/User");
+const protectRoute = require("./../middlewares/protectRoute")
+
+router.use(protectRoute);
+
 
 /* GET home page */
 router.get("/", async (req, res, next) => {
@@ -15,7 +19,7 @@ function getRandomInt(max) {
 }
 
 router.get("/api", async function (req, res) {
-  const currentUser = await UserModel.findOne({_id: req.session.currentUser._id});
+  const currentUser = await UserModel.findOne({ _id: req.session.currentUser._id });
   const rouletteItems = await ItemModel.find({
     $and: [
       { user: { $in: currentUser.friends } },

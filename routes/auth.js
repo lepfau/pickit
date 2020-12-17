@@ -4,6 +4,7 @@ const UserModel = require("./../models/User");
 const bcrypt = require("bcrypt");
 const uploader = require("./../config/cloudinary");
 
+
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
 router.get("/signin", async (req, res) => {
   res.render("signIn");

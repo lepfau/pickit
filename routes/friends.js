@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const UserModel = require("./../models/User");
+const protectRoute = require("./../middlewares/protectRoute")
+
+router.use(protectRoute);
+
 
 //ROUTERS ALL TO BE REPLACED WITH AJAX/AXIOS, JUST CODED THEM IN ORDER TO BE ABLE TO DO VIEWS/CSS
 // router.get("/", async (req, res) => {
@@ -60,7 +64,7 @@ router.post("/api/delete", async function (req, res) {
 
 router.get("/nonfriends/api", async function (req, res) {
   const exp = new RegExp(req.query.search);
-  const currentUser = await UserModel.findById(req.session.currentUser._id);
+  const currentUser = await UserModel.findById({ _id: req.session.currentUser._id });
   currentUser.friends.push(req.session.currentUser._id);
   console.log(currentUser.friends);
   try {
