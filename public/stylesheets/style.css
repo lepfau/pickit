@@ -279,6 +279,12 @@ select {
   flex-direction: column;
   align-items: flex-start;
 }
+.fullInput img{
+    border: 1px solid #ddd;
+    border-radius: 4px;  
+    padding: 5px; 
+    width: 150px;
+}
 
 #search-bar {
   display: flex;
@@ -291,8 +297,10 @@ select {
 }
 
 .user-image img {
-  height: 65px;
+  height: 70px;
+  margin:10px;
   border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
 .user-name {
@@ -310,6 +318,14 @@ select {
   border-radius: 5px;
   justify-content: space-between;
   box-shadow: 1px 2px 2px black;
+}
+.user-card button{
+  font-weight:600;
+  color:black;
+  width: 4rem;
+ position: fixed;
+ margin-top:2rem;
+ margin-left:0.3rem;
 }
 
 #allusers {
