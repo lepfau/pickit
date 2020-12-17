@@ -1,35 +1,36 @@
 {{!-- check all links / each when we do the routes --}}
 <h2 class="subtitle-list"> Your items list </h2>
-<div>
-    <div id="items-filter">
-        <span>Filter &#x25BC</span>
-        <span>Sort &#x25BC</span>
+<div >
+    <div id="allitems-header">
+        <div id="items-filter">
+            <span>Filter &#x25BC</span>
+            <span>Sort &#x25BC</span>
+        </div>
         <a id="item-create" href="/items/create"><i class="fas fa-plus-circle"></i></a>
     </div>
 
-
     {{!-- maybe copy/comment out the below and put in a placeholder to do the styling? --}}
-    <section id="item-list-all"> {{!-- will need scroll overflow y --}}
-        {{#each item}}
-        <a href="/items/detail/:id">
-            <div class="full-item-card">
-                <div class="item-image">
-                    <img src="{{image}}" alt="{{name}}">
-                </div>
-                <div class="item-infos">
-                    <div>
-                        <p>{{brand}}</p>
-                        <div>
-                            <p><i class="fas fa-heart"></i></p>
-                            <p>{{likes}}</p>
-                            <a href="/items/update/:id"><i class="fas fa-edit"></i></a>
-                            <a href="/items/delete/:id"> <i class="fas fa-trash"></i></a>
-                        </div>
+        <section id="item-list-all"> {{!-- will need scroll overflow y --}}
+            {{#each item}}
+            <a href="/items/detail/:id">
+                <div class="full-item-card">
+                    <div class="item-image">
+                        <img src="{{image}}" alt="{{name}}">
                     </div>
-                    <p>{{name}}</p>
-                    <p>{{price}}</p>
+                    <div class="item-infos">
+                        <div>
+                            <p>{{brand}}</p>
+                            <div>
+                                <p><i class="fas fa-heart"></i></p>
+                                <p>{{likes}}</p>
+                                <a href="/items/update/:id"><i class="fas fa-edit"></i></a>
+                                <a href="/items/delete/:id"> <i class="fas fa-trash"></i></a>
+                            </div>
+                        </div>
+                        <p>{{name}}</p>
+                        <p>{{price}}</p>
+                    </div>
                 </div>
-            </div>
-        </a>
-        {{/each}}
-    </section>
+            </a>
+            {{/each}}
+        </section>

@@ -25,30 +25,31 @@ function displayItems() {
       fullItemList.innerHTML = "";
       respfromAPI.data.forEach((item) => {
         fullItemList.innerHTML += `
-  
         <div class="full-item-card">
-        <div class="left-part">
-               <div class="item-image"> 
-               <img src="${item.image}"> 
-               </div>
-                <div class="item-description">
-                <div class="item-brand">${item.brand} </div>
-                <div class="item-name">${item.name} </div>
-                <div class="item-price"> ${item.price} € </div>
-                <div id ="see-more-link"> <a href="/items/${item._id}">See more..</a> </div>
-                </div>
-             </div>
-             
-             <div class="right-part">
-               <a href="/items/update/${item._id}"><i class="fas fa-edit"></i></a>
-               <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>
-            </div>   
+          <div class="item-image"> 
+            <img src="${item.image}"> 
+          </div>
+          <div class="all-item-info">
+            <div class="item brand-price">
+                  <div class="item-brand">${item.brand} </div>
+                  <div class="item-price"> €${item.price}</div>
+            </div>          
+            <p class="item-name">${item.name} </p>
+            <p class ="see-more-link"> <a href="/items/${item._id}">Click for item details</a> </p>
+              
+            <div class="bottom-icons">
+              <div class="likes-dislike"> 
+                <i class="fas fa-heart"><br><span>${item.likes.length}</span></i>
+                <i class="fas fa-thumbs-down"><br><span>${item.dislikes.length}</span></i>
+              </div>  
+              <div class="update-trash"> 
+                <a href="/items/update/${item._id}"><i class="fas fa-edit"></i></a>
+                <i class="delete-btn fas fa-trash" item-id="${item._id}" ></i>
+              </div>
+            </div>
+          </div>  
         </div>
-        <div class="bottom-part"> 
-        <i class="fas fa-heart"><br><span>${item.likes.length}</span></i>
-        <i class="fas fa-thumbs-down"><br><span>${item.dislikes.length}</span></i>
-        </div>
-        <br> <hr>
+        <hr>
         `;
       });
       const deleteButton = document.querySelectorAll(".delete-btn");
