@@ -64,7 +64,7 @@ app.use(require("./middlewares/exposeFlashMessage"));
 
 if (process.env.NODE_ENV !== "production") {
   app.use(async (req, res, next) => {
-    const loggedInUser = await UserModel.findById("5fda7f6ec44dc66544e67066");
+    const loggedInUser = await UserModel.findOne();
     req.session.currentUser = loggedInUser;
     next();
   });

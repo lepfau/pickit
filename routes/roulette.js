@@ -24,7 +24,7 @@ router.get("/api", async function (req, res) {
     ],
   });
   const rouletteItem = rouletteItems[getRandomInt(rouletteItems.length)];
-  console.log(rouletteItems);
+  // console.log(rouletteItems);
   let rouletteInput;
   if (!rouletteItem) {
     rouletteInput = {
@@ -35,8 +35,7 @@ router.get("/api", async function (req, res) {
     const rouletteItemUser = await UserModel.findById(rouletteItem.user);
     rouletteInput = { item: rouletteItem, user: rouletteItemUser };
   }
-  console.log(rouletteInput);
-  // console.log(currentUser);
+  // console.log(rouletteInput);
   try {
     res.status(200).json(rouletteInput);
   } catch (err) {
