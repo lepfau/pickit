@@ -335,6 +335,7 @@ select {
 
 .full-item-card a {
   font-size: 1em;
+  padding:0px;
 }
 
 .full-item-card img {
@@ -345,13 +346,13 @@ select {
 .item-brand {
   font-size: 2em;
   font-weight: bold;
-  width: 150px;
+  /* width: 150px; */
 }
 
 .item-name {
-  margin: 15px;
+  margin: 15px 0px;
   font-size: 1em;
-  font-style:italic;
+  font-style: italic;
 }
 
 .item-price {
@@ -394,6 +395,13 @@ select {
   margin-left:40px;
 }
 
+#item-description-details img {
+  height: 200px;
+  margin: 1rem;
+}
+#item-description-details .item-description{
+margin:auto;
+}
 .msg {
   border: 3px solid black;
 }
@@ -473,7 +481,41 @@ select {
   height: 50px;
 }
 .item-image img {
-  margin-top: 30px;
-  height: 175px;
+  margin-top: 60px;
+  /* height: 175px; */
   width: 90px;
+}
+
+#items-filter {
+  display:inline;
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+}
+
+#item-create {
+color: darkgrey;
+}
+
+#item-page {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: center;
+  text-align:center;
+}
+
+#one-item-header {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+#one-item-header a, #one-item-footer{
+  font-size: 1.2em;
+  font-style:italic;
+}
+#one-item-footer {
+  font-size: 1.2em;
+  font-style:italic;
+  margin-top: 25px;
 }
