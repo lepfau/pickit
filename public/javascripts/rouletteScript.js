@@ -1,5 +1,6 @@
 const rouletteAPI = new APIHandler();
 
+const rouletteDiv = document.getElementById("roulette-div");
 const rouletteItemUser = document.getElementById("roulettte-item-user-name");
 const rouletteItemUserImage = document.getElementById(
   "roulettte-item-user-image"
@@ -22,20 +23,24 @@ function renderRoulette() {
   rouletteAPI
     .getRouletteItem()
     .then((respfromAPI) => {
-      const item = respfromAPI.data.item;
-      const user = respfromAPI.data.user;
-      // console.log(user);
-      rouletteItemUser.innerHTML = `Like it for ${user.firstName}?`;
-      rouletteItemUserImage.src = user.image;
-      rouletteBrand.innerHTML = `${item.brand}`;
-      roulettePrice.innerHTML = `${item.price}`;
-      rouletteName.innerHTML = `${item.name}`;
-      rouletteImage.src = `${item.image}`;
-      rouletteLink.href = `${item.link}`;
-      likeBtn.setAttribute("item-id", `${item._id}`);
-      dislikeBtn.setAttribute("item-id", `${item._id}`);
-      likeBtn.href = `/roulette/like/${item._id}`;
-      dislikeBtn.href = `/roulette/dislike/${item._id}`;
+      console.log(`printing the respfromAPI data`, respfromAPI.data.message);
+      if (respfromAPI.data.message) {
+        rouletteDiv.innerHTML = respfromAPI.data.message;
+      } else {
+        const item = respfromAPI.data.item;
+        const user = respfromAPI.data.user;
+        rouletteItemUser.innerHTML = `Like it for ${user.firstName}?`;
+        rouletteItemUserImage.src = user.image;
+        rouletteBrand.innerHTML = `${item.brand}`;
+        roulettePrice.innerHTML = `${item.price}`;
+        rouletteName.innerHTML = `${item.name}`;
+        rouletteImage.src = `${item.image}`;
+        rouletteLink.href = `${item.link}`;
+        likeBtn.setAttribute("item-id", `${item._id}`);
+        dislikeBtn.setAttribute("item-id", `${item._id}`);
+        likeBtn.href = `/roulette/like/${item._id}`;
+        dislikeBtn.href = `/roulette/dislike/${item._id}`;
+      }
     })
     .catch((err) => {
       console.log(err);
