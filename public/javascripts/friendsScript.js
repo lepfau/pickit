@@ -2,8 +2,7 @@ const usersApi = new APIHandler();
 
 const allFriendsList = document.getElementById("allfriends");
 const nonFriendsList = document.getElementById("nonfriends");
-const inputSearch = document.querySelector(".input")
-
+const inputSearch = document.querySelector(".input");
 
 window.addEventListener("load", () => {
   displayFriends("");
@@ -11,8 +10,8 @@ window.addEventListener("load", () => {
 });
 
 inputSearch.addEventListener("change", async (event) => {
-  displayFriends(event.target.value)
-  displayNonFriends(event.target.value)
+  displayFriends(event.target.value);
+  displayNonFriends(event.target.value);
   // usersApi.searchUsers(inputSearch.value)
   //   .then((respfromAPI) => {
   //     console.log(respfromAPI.data)
@@ -27,9 +26,7 @@ inputSearch.addEventListener("change", async (event) => {
   //   .catch((err) => {
   //     console.log(err);
   //   });
-})
-
-
+});
 
 function displayFriends(value) {
   console.log(value);
@@ -42,15 +39,13 @@ function displayFriends(value) {
         allFriendsList.innerHTML += `
                     <section class="user-card">
                     <div class="user-name">
-                        <p>${user.firstName}<br> ${user.lastName}</p>
+                        <p>${user.firstName} ${user.lastName}</p>
+                        <button style="display:none" class="addFriend" user-id="${user._id}"> Add as Friend</button>    
+                        <button style="display:block" class="deleteFriend" user-id="${user._id}"> Remove Friend</button>
                     </div>
                     <div class="user-image">
                         <img src="${user.image}" alt="${user.firstName} ${user.lastName}">
-                    </div>
-                    
-                        <button style="visibility:hidden" class="addFriend" user-id="${user._id}"> Add</button>
-
-                        <button style="visibility:visible" class="deleteFriend" user-id="${user._id}"> Delete</button>
+                    </div>                    
                 </section>
                 `;
       });
@@ -72,9 +67,6 @@ function displayFriends(value) {
     });
 }
 
-
-
-
 function displayNonFriends(value) {
   usersApi
     .getNonFriends(value)
@@ -84,15 +76,13 @@ function displayNonFriends(value) {
         nonFriendsList.innerHTML += `
                     <section class="user-card">
                     <div class="user-name">
-                        <p>${user.firstName}<br> ${user.lastName}</p>
+                        <p>${user.firstName} ${user.lastName}</p>
+                        <button style="display:block" class="addFriend" user-id="${user._id}"> Add as Friend</button>    
+                        <button style="display:none" class="deleteFriend" user-id="${user._id}"> Remove Friend </button>
                     </div>
                     <div class="user-image">
                         <img src="${user.image}" alt="${user.firstName} ${user.lastName}">
-                    </div>
-                    
-                        <button style="visibility:visible" class="addFriend" user-id="${user._id}"> Add</button>
-
-                        <button style="visibility:hidden" class="deleteFriend" user-id="${user._id}"> Delete</button>
+                    </div>                    
                 </section>
                 `;
       });
@@ -134,9 +124,8 @@ async function AddFriendOfUser(evt) {
   }
 }
 
-
 function hideDeleteButton(evt) {
-  evt.target.style.visibility = "hidden";
+  evt.target.style.display = "none";
 }
 
 function showAddButton(evt) {
@@ -144,13 +133,13 @@ function showAddButton(evt) {
   const id = evt.target.getAttribute("user-id");
   allDeleteButtons.forEach((btn) => {
     if (btn.getAttribute("user-id") === id) {
-      btn.style.visibility = "visible";
+      btn.style.display = "block";
     }
   });
 }
 
 function hideAddButton(evt) {
-  evt.target.style.visibility = "hidden";
+  evt.target.style.display = "none";
 }
 
 function showDeleteButton(evt) {
@@ -158,7 +147,7 @@ function showDeleteButton(evt) {
   const id = evt.target.getAttribute("user-id");
   allAddButtons.forEach((btn) => {
     if (btn.getAttribute("user-id") === id) {
-      btn.style.visibility = "visible";
+      btn.style.display = "block";
     }
   });
 }

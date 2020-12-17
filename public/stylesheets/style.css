@@ -11,14 +11,19 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+  padding-bottom: 10px;
   position: relative;
 }
 
 .footer {
   position: absolute;
-  bottom: -120px;
+  bottom: 0;
+  width: 100vw;
+  height: 10px;
+  font-size: 10px;
+  /* bottom: -120px;
   left: 20px;
-  height: 2.5rem;
+  height: 2.5rem; */
 }
 
 .navbar a {
@@ -26,6 +31,23 @@ body {
   font-size: 3vh;
   padding: 10px;
   text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+#logout-button {
+  background: none;
+  color: white;
+  font-size: 24px;
+  border: none;
+  margin: 0px 10px;
+}
+
+#user-profile {
+  display: none;
 }
 
 a {
@@ -291,42 +313,60 @@ select {
 #search-bar .input {
   width: 250px;
   height: 30px;
+  margin-bottom: 10px;
+}
+#search-btn {
+  height: 36px;
+}
+
+#allusers {
+  width: 95vw;
+  margin: 0 auto;
+  background: white;
+  overflow-y: scroll;
+  height: 65vh;
 }
 
 .user-image img {
-  height: 70px;
-  margin: 10px;
-  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 90px;
   border: 1px solid #ddd;
 }
 
 .user-name {
   font-family: Nunito;
   font-weight: 600;
-  width: 80px;
-  margin-left: 10px;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.user-name p {
+  margin: 0px;
+}
+
+#allfriends .user-card {
+  background-color: #9bc3c6;
+}
+#nonfriends .user-card {
+  background-color: lightgray;
 }
 
 .user-card {
   display: flex;
-  align-items: center;
-  margin: 20px 10px;
-  background-color: #9bc3c6;
+  margin: 10px;
+  padding: 10px;
   border-radius: 5px;
   justify-content: space-between;
-  box-shadow: 1px 2px 2px black;
-  position: relative;
+  box-shadow: 1px 2px 2px gray;
 }
+
 .user-card button {
   font-weight: 600;
   color: black;
-  width: 4rem;
-  position: absolute;
-  bottom: 0.3rem;
-  left: 0.1rem;
-}
-
-#allusers {
 }
 
 .user-card a {
@@ -335,6 +375,11 @@ select {
   background-color: #0b2027;
   border-radius: 0px;
   margin-right: 14px;
+}
+
+#invite-form {
+  text-align: center;
+  margin: 10px;
 }
 
 #allitems-header {
@@ -413,7 +458,7 @@ select {
 }
 
 #roulette-image {
-  max-height: 50vh;
+  max-height: 45vh;
   max-width: 90vw;
   border: 1px solid lightgrey;
 }
@@ -462,7 +507,6 @@ select {
 
 .roulette-btns {
   display: flex;
-  padding-top: 16px;
 }
 
 .link a {
@@ -474,11 +518,11 @@ select {
 }
 
 .link {
-  margin-top: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin: 15px 0px;
 }
 
 #user-name {
@@ -490,12 +534,11 @@ select {
 }
 
 #item-list-all {
-  width: 93%;
-  margin: 0 auto;
+  width: 95%;
+  margin: 10px;
   background: white;
   overflow-y: scroll;
   height: 75vh;
-  overflow-y: scroll;
 }
 .item-image {
   width: 25%;
@@ -557,9 +600,9 @@ hr {
 }
 
 #roulettte-item-user-image {
-  width: auto;
+  width: 40px;
   height: 40px;
-  border-radius: 25px;
+  border-radius: 90px;
   margin-left: 15px;
 }
 

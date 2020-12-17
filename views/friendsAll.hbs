@@ -1,32 +1,35 @@
+
 {{> nav_bar}}
 <h2 class="subtitle"> Your friends</h2>
 
 <form id="search-bar" method="get" action="/friends/search/api" class="form">
     <input class="input" type="text" placeholder="search username" name="search">
-    <button class="btn">
+    <button id="search-btn" class="btn">
         <i class="fa fa-search"></i>
     </button>
 </form>
 
 </div>
 
+<div id="allusers">
+    <div id="allfriends">
 
-<div id="allfriends">
+        {{!-- <section class="user-card">
+            <div class="user-name">
+                <p>{{firstName}}<br> {{lastName}}</p>
+            </div>
+            <div class="user-image">
+                <img src="{{image}}" alt="{{firstName}} {{lastName}}">
+            </div>
+            <div class="addBtn">
+                <a href="/friends/add/{{_id}}">Add</a>
+            </div>
+        </section> --}}
+    </div>
+    <div id="nonfriends">
+    
 
-    {{!-- <section class="user-card">
-        <div class="user-name">
-            <p>{{firstName}}<br> {{lastName}}</p>
-        </div>
-        <div class="user-image">
-            <img src="{{image}}" alt="{{firstName}} {{lastName}}">
-        </div>
-        <div class="addBtn">
-            <a href="/friends/add/{{_id}}">Add</a>
-        </div>
-    </section> --}}
-</div>
-<div id="nonfriends">
-
+    </div>
 </div>
 
 {{>emailForm}}
