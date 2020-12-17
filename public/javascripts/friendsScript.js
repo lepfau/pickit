@@ -2,7 +2,7 @@ const usersApi = new APIHandler();
 
 const allFriendsList = document.getElementById("allfriends");
 const nonFriendsList = document.getElementById("nonfriends");
-const inputSearch = document.querySelector(".input");
+const inputSearch = document.querySelector(".searchinput");
 
 window.addEventListener("load", () => {
   displayFriends("");
@@ -12,6 +12,7 @@ window.addEventListener("load", () => {
 inputSearch.addEventListener("change", async (event) => {
   displayFriends(event.target.value);
   displayNonFriends(event.target.value);
+
   // usersApi.searchUsers(inputSearch.value)
   //   .then((respfromAPI) => {
   //     console.log(respfromAPI.data)
@@ -57,8 +58,9 @@ function displayFriends(value) {
           hideDeleteButton(evt);
           showAddButton(evt);
           await deleteFriendOfUser(evt);
-          displayFriends();
-          displayNonFriends();
+          displayFriends(value);
+          displayNonFriends(value);
+          inputSearch.value = ""
         };
       });
     })
@@ -94,8 +96,8 @@ function displayNonFriends(value) {
           hideAddButton(evt);
           showDeleteButton(evt);
           await AddFriendOfUser(evt);
-          displayNonFriends();
-          displayFriends();
+          displayNonFriends(value);
+          displayFriends(value);
         };
       });
     })

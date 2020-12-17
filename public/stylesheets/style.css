@@ -380,6 +380,7 @@ select {
 #invite-form {
   text-align: center;
   margin: 10px;
+  margin-bottom: 11px;
 }
 
 #allitems-header {
@@ -640,4 +641,17 @@ hr {
   color: white;
   border-radius: 10px;
   box-shadow: 5px 2px 2px gray;
+}
+
+.searchinput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+}
+
+.search {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
 }

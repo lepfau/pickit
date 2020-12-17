@@ -107,9 +107,11 @@ router.post("/update/:id", uploader.single("image"), async (req, res, next) => {
 
     await ItemModel.findByIdAndUpdate(req.params.id, itemToUpdate);
     res.redirect("/items");
+
   } catch (err) {
     next(err);
   }
 });
+
 
 module.exports = router;
