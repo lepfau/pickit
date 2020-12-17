@@ -565,7 +565,6 @@ hr {
   width: 95%;
 }
 #items-filter {
-  display: inline;
   display: flex;
   align-items: center;
   justify-content: space-around;
