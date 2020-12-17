@@ -1,25 +1,27 @@
 <div id="one-item-header">
-    <a href="/items">Back to full list</a>
+    <a href="/items"> &#x2190; Back to full list</a>
     {{!-- <a href="/items/create"> Add a new item <i class="fas fa-plus-circle"></i></a> --}}
 </div>
 
 <div id="item-page">
     <div>
+        <div id="item-description-details">
+            <div class="brand-price">
+                <p class="item-brand">{{brand}}</p>
+                <p class="item-price">€{{price}}</p>
+            </div>
+            <p class="item-name">{{name}}</p>
+            <p class="item-description">{{description}}</p>
+            <img class="one-item-image" src="{{image}}" alt="{{brand}} {{name}} image">
+        </div>
+        <a id="one-item-footer" href="{{link}}" target="_blank">Go to retailer website</a>
+    </div>
         <div class="update-item-buttons">
             {{!-- <p class="like-btn"><i class="fas fa-heart"></i></p> --}}
             {{!-- <p>{{likes}}</p> --}}
             <a href="/items/update/{{_id}}"><i class="fas fa-edit"></i></a>
             <a href="/items/delete/{{_id}}"> <i class="fas fa-trash"></i></a>
         </div>
-        <div id="item-description-details">
-            <p class="item-brand">{{brand}}</p>
-            <p class="item-price">{{price}}</p>
-            <p class="item-name">{{name}}</p>
-            <p class="item-description">{{description}}</p>
-            <img src="{{image}}" alt="{{brand}} {{name}} image">
-        </div>
-        <a id="one-item-footer" href="{{link}}" target="_blank">Go to retailer website</a>
-    </div>
 </div>
 
 
