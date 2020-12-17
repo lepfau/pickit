@@ -15,7 +15,7 @@ function getRandomInt(max) {
 }
 
 router.get("/api", async function (req, res) {
-  const currentUser = await UserModel.findOne(req.session.currentUser._id);
+  const currentUser = await UserModel.findOne({_id: req.session.currentUser._id});
   const rouletteItems = await ItemModel.find({
     $and: [
       { user: { $in: currentUser.friends } },
