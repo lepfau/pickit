@@ -55,7 +55,7 @@ const users = [
     email: "gclooney@gmail.com",
     password: "812892",
     image:
-      "https://static.wikia.nocookie.net/disney/images/c/c8/George_Clooney.jpg/revision/latest?cb=20191217011451",
+      "https://upload.wikimedia.org/wikipedia/commons/8/8d/George_Clooney_2016.jpg",
     items: [],
     friends: [],
   },

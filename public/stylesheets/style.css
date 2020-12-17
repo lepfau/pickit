@@ -321,9 +321,9 @@ select {
   font-weight: 600;
   color: black;
   width: 4rem;
- position: absolute;
- bottom: 0.3rem;
- left: 0.1rem;
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0.1rem;
 }
 
 #allusers {
@@ -519,7 +519,7 @@ hr {
 #item-create {
   color: darkgrey;
   padding: 0px;
- }
+}
 
 #item-page {
   display: flex;
