@@ -2,16 +2,39 @@ const usersApi = new APIHandler();
 
 const allFriendsList = document.getElementById("allfriends");
 const nonFriendsList = document.getElementById("nonfriends");
+const inputSearch = document.querySelector(".input")
+
 
 window.addEventListener("load", () => {
-  displayFriends();
-  displayNonFriends();
-  searchUser();
+  displayFriends("");
+  displayNonFriends("");
 });
 
-function displayFriends() {
+inputSearch.addEventListener("change", async (event) => {
+  displayFriends(event.target.value)
+  displayNonFriends(event.target.value)
+  // usersApi.searchUsers(inputSearch.value)
+  //   .then((respfromAPI) => {
+  //     console.log(respfromAPI.data)
+  //     allFriendsList.innerHTML = "";
+  //     nonFriendsList.innerHTML = "";
+  //     respfromAPI.data.forEach((user) => {
+  //       allFriendsList.innerHTML +=
+  //         `<p>${user.firstName}<br> ${user.lastName}</p>`
+
+  //     })
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+})
+
+
+
+function displayFriends(value) {
+  console.log(value);
   usersApi
-    .getFriends()
+    .getFriends(value)
     .then((respfromAPI) => {
       console.log(respfromAPI.data);
       allFriendsList.innerHTML = "";
@@ -52,9 +75,9 @@ function displayFriends() {
 
 
 
-function displayNonFriends() {
+function displayNonFriends(value) {
   usersApi
-    .getNonFriends()
+    .getNonFriends(value)
     .then((respfromAPI) => {
       nonFriendsList.innerHTML = "";
       respfromAPI.data.forEach((user) => {
@@ -111,11 +134,6 @@ async function AddFriendOfUser(evt) {
   }
 }
 
-function searchUser() {
-  usersApi.searchUsers();
-  displayFriends();
-  displayNonFriends()
-}
 
 function hideDeleteButton(evt) {
   evt.target.style.visibility = "hidden";

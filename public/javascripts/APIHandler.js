@@ -29,12 +29,20 @@ class APIHandler {
   }
 
   //FRIEND PART
-  getFriends() {
-    return this.service.get("/friends/friends/api");
+  getFriends(searchValue) {
+    return this.service.get("/friends/friends/api", {
+      params: {
+        search: searchValue
+      }
+    });
   }
 
-  getNonFriends() {
-    return this.service.get("/friends/nonfriends/api");
+  getNonFriends(searchValue) {
+    return this.service.get("/friends/nonfriends/api", {
+      params: {
+        search: searchValue
+      }
+    });
   }
 
   addOneFriend(friendId) {
@@ -42,10 +50,14 @@ class APIHandler {
   }
 
   deleteOneFriend(friendId) {
-    return this.service.post("/friends/api/delete", { id: friendId });
+    return this.service.post("/friends/api/delete", { id: friendId }, {});
   }
 
-  searchUsers() {
-    return this.service.get("/friends/search/api")
+  searchUsers(str) {
+    return this.service.get("/friends/search/api", {
+      params: {
+        search: str
+      }
+    })
   }
 }

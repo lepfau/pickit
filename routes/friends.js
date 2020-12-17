@@ -31,10 +31,14 @@ router.get("/", async (req, res) => {
 // });
 
 router.get("/friends/api", async function (req, res) {
+
+
+
+  const exp = new RegExp(req.query.search);
   try {
     res
       .status(200)
-      .json(await UserModel.find({ _id: req.session.currentUser.friends }));
+      .json(await UserModel.find({ _id: req.session.currentUser.friends, username: { $regex: exp } }));
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -55,6 +59,7 @@ router.post("/api/delete", async function (req, res) {
 });
 
 router.get("/nonfriends/api", async function (req, res) {
+  const exp = new RegExp(req.query.search);
   const currentUser = await UserModel.findById(req.session.currentUser._id);
   currentUser.friends.push(req.session.currentUser._id);
   console.log(currentUser.friends);
@@ -62,9 +67,11 @@ router.get("/nonfriends/api", async function (req, res) {
     res.status(200).json(
       await UserModel.find({
         _id: { $nin: currentUser.friends },
+        username: { $regex: exp }
       })
     );
   } catch (err) {
+    console.log(err)
     res.status(500).json(err.message);
   }
 });
@@ -77,11 +84,10 @@ router.get("/search/api", async (req, res, next) => {
     console.log(req.query); // query strings
     const exp = new RegExp(req.query.search); // creating a regular expression
     const matchedUsers = await UserModel.find({ username: { $regex: exp } });
-    console.log(matchedUsers)
 
-    res.json({
+    res.json(
       matchedUsers
-    })
+    )
   } catch (err) {
     next(err);
   }

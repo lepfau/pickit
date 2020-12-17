@@ -5,11 +5,12 @@
         <a href="/friends"><i class="fas fa-users"></i></a>
         <a href="/roulette"><i class="fas fa-heart"></i></a>
     </div>
-    <span id="user-name">Hello, {{currentUser.firstName}}</span>
-    <form id="logout-form" action="/logout" method="POST">
-        <button>Logout</button>
-    </form>
-    <a href="/user"><i class="fas fa-user"></i></a>
-
+    <div class="navbar-right">
+        <span id="user-name">Hello, {{currentUser.firstName}}</span>
+        <form id="logout-form" action="/logout" method="POST">
+            <button>Logout</button>
+        </form>
+        <a href="/user"><i class="fas fa-user"></i></a>
+    </div>
 
 </nav>
