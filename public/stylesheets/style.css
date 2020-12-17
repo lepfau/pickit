@@ -315,14 +315,15 @@ select {
   border-radius: 5px;
   justify-content: space-between;
   box-shadow: 1px 2px 2px black;
+  position: relative;
 }
 .user-card button {
   font-weight: 600;
   color: black;
   width: 4rem;
-  position: fixed;
-  margin-top: 2rem;
-  margin-left: 0.3rem;
+ position: absolute;
+ bottom: 0.3rem;
+ left: 0.1rem;
 }
 
 #allusers {
@@ -518,7 +519,7 @@ hr {
 #item-create {
   color: darkgrey;
   padding: 0px;
-}
+ }
 
 #item-page {
   display: flex;
