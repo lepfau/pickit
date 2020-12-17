@@ -10,16 +10,21 @@ router.get("/", async (req, res, next) => {
   });
 });
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 router.get("/api", async function (req, res) {
   const currentUser = await UserModel.findOne(req.session.currentUser._id);
-  const rouletteItem = await ItemModel.findOne({
+  const rouletteItems = await ItemModel.find({
     $and: [
       { user: { $in: currentUser.friends } },
       { likes: { $nin: currentUser._id } },
       { dislikes: { $nin: currentUser._id } },
     ],
   });
-  console.log(rouletteItem);
+  const rouletteItem = rouletteItems[getRandomInt(rouletteItems.length)];
+  // console.log(rouletteItems);
   let rouletteInput;
   if (!rouletteItem) {
     rouletteInput = {
@@ -30,8 +35,7 @@ router.get("/api", async function (req, res) {
     const rouletteItemUser = await UserModel.findById(rouletteItem.user);
     rouletteInput = { item: rouletteItem, user: rouletteItemUser };
   }
-  console.log(rouletteInput);
-  // console.log(currentUser);
+  // console.log(rouletteInput);
   try {
     res.status(200).json(rouletteInput);
   } catch (err) {
