@@ -41,27 +41,3 @@ function renderRoulette() {
       console.log(err);
     });
 }
-
-// async function likeBtnEventListener() {
-//   likeBtn.onclick = async (evt) => {
-//     const itemId = await evt.target.getAttribute("item-id");
-//     console.log("you've clicked on the like button");
-//     try {
-//       rouletteAPI.saveRouletteLike(itemId);
-//       rouletteAPI.getRouletteItem();
-//       renderRoulette();
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
-// }
-
-// async function dislikeBtnEventListener() {
-//   //   const id = evt.target.getAttribute("item-id");
-//   try {
-//     renderRoulette();
-//     // TBD: SAVE USERID + "DISLIKE" TO ITEM DATABASE
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }

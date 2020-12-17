@@ -45,18 +45,3 @@ class APIHandler {
     return this.service.post("/friends/api/delete", { id: friendId });
   }
 }
-
-//COPY PASTA FROM LABS SHH
-//   async function deleteTodo(evt, callback) {
-//     const id = evt.target.getAttribute("data-todo-id");
-//     try {
-//         await service.delete("/todos/" + id);
-//         getTodos(callback);
-//       } catch (err) {
-//         console.error(err);
-//       }
-// }
-
-// async deleteOneRegister(charID) {
-//   return axios.delete(`${this.BASE_URL}/characters/` + charID);
-// }

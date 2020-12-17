@@ -24,16 +24,7 @@ router.get("/api", async function (req, res) {
   console.log(rouletteItemUser);
   // console.log(currentUser);
   try {
-    res.status(200).json(
-      { item: rouletteItem, user: rouletteItemUser }
-      // await ItemModel.findOne({
-      //   $and: [
-      //     { user: { $in: currentUser.friends } },
-      //     { likes: { $nin: currentUser._id } },
-      //     { dislikes: { $nin: currentUser._id } },
-      //   ],
-      // })
-    );
+    res.status(200).json({ item: rouletteItem, user: rouletteItemUser });
   } catch (err) {
     res.status(500).json(err.message);
   }
@@ -41,13 +32,6 @@ router.get("/api", async function (req, res) {
 
 router.get("/like/:itemId", async (req, res, next) => {
   try {
-    // res.json(
-    //   await ItemModel.update(
-    //     { _id: req.params.itemId },
-    //     { $push: { reaction: reaction } },
-    //     done
-    //   )
-    // );
     const itemToUpdate = await ItemModel.findById(req.params.itemId);
     itemToUpdate.likes.push({ _id: req.session.currentUser._id });
     itemToUpdate.save();
