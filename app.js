@@ -9,9 +9,10 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
 const axios = require("axios").default;
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const UserModel = require("./models/User");
 const flash = require("connect-flash");
-const session = require("express-session");
 
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true })
@@ -51,6 +52,12 @@ hbs.registerPartials(path.join(__dirname, "views/partials"));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 60000 }, // in millisec
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection, // you can store session infos in mongodb :)
+      ttl: 24 * 60 * 60,
+      // 1 day
+    }),
     saveUninitialized: true,
     resave: true,
   })
