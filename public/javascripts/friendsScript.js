@@ -2,7 +2,7 @@ const usersApi = new APIHandler();
 
 const allFriendsList = document.getElementById("allfriends");
 const nonFriendsList = document.getElementById("nonfriends");
-const inputSearch = document.querySelector(".input")
+const inputSearch = document.querySelector(".searchinput")
 
 
 window.addEventListener("load", () => {
@@ -13,6 +13,7 @@ window.addEventListener("load", () => {
 inputSearch.addEventListener("change", async (event) => {
   displayFriends(event.target.value)
   displayNonFriends(event.target.value)
+
   // usersApi.searchUsers(inputSearch.value)
   //   .then((respfromAPI) => {
   //     console.log(respfromAPI.data)
