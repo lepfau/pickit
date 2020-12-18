@@ -2,17 +2,17 @@ const usersApi = new APIHandler();
 
 const allFriendsList = document.getElementById("allfriends");
 const nonFriendsList = document.getElementById("nonfriends");
-const inputSearch = document.querySelector(".searchinput");
+const inputSearch = document.querySelector(".input")
+
 
 window.addEventListener("load", () => {
-  displayFriends("");
-  displayNonFriends("");
+  displayFriends();
+  displayNonFriends();
 });
 
 inputSearch.addEventListener("change", async (event) => {
-  displayFriends(event.target.value);
-  displayNonFriends(event.target.value);
-
+  displayFriends(event.target.value)
+  displayNonFriends(event.target.value)
   // usersApi.searchUsers(inputSearch.value)
   //   .then((respfromAPI) => {
   //     console.log(respfromAPI.data)
@@ -27,7 +27,9 @@ inputSearch.addEventListener("change", async (event) => {
   //   .catch((err) => {
   //     console.log(err);
   //   });
-});
+})
+
+
 
 function displayFriends(value) {
   console.log(value);
@@ -40,13 +42,15 @@ function displayFriends(value) {
         allFriendsList.innerHTML += `
                     <section class="user-card">
                     <div class="user-name">
-                        <p>${user.firstName} ${user.lastName}</p>
-                        <button style="display:none" class="addFriend" user-id="${user._id}"> Add as Friend</button>    
-                        <button style="display:block" class="deleteFriend" user-id="${user._id}"> Remove Friend</button>
+                        <p>${user.firstName}<br> ${user.lastName}</p>
                     </div>
                     <div class="user-image">
                         <img src="${user.image}" alt="${user.firstName} ${user.lastName}">
-                    </div>                    
+                    </div>
+                    
+                        <button style="visibility:hidden" class="addFriend" user-id="${user._id}"> Add</button>
+
+                        <button style="visibility:visible" class="deleteFriend" user-id="${user._id}"> Delete</button>
                 </section>
                 `;
       });
@@ -58,9 +62,8 @@ function displayFriends(value) {
           hideDeleteButton(evt);
           showAddButton(evt);
           await deleteFriendOfUser(evt);
-          displayFriends(value);
-          displayNonFriends(value);
-          inputSearch.value = ""
+          displayFriends();
+          displayNonFriends();
         };
       });
     })
@@ -68,6 +71,9 @@ function displayFriends(value) {
       console.log(err);
     });
 }
+
+
+
 
 function displayNonFriends(value) {
   usersApi
@@ -78,13 +84,15 @@ function displayNonFriends(value) {
         nonFriendsList.innerHTML += `
                     <section class="user-card">
                     <div class="user-name">
-                        <p>${user.firstName} ${user.lastName}</p>
-                        <button style="display:block" class="addFriend" user-id="${user._id}"> Add as Friend</button>    
-                        <button style="display:none" class="deleteFriend" user-id="${user._id}"> Remove Friend </button>
+                        <p>${user.firstName}<br> ${user.lastName}</p>
                     </div>
                     <div class="user-image">
                         <img src="${user.image}" alt="${user.firstName} ${user.lastName}">
-                    </div>                    
+                    </div>
+                    
+                        <button style="visibility:visible" class="addFriend" user-id="${user._id}"> Add</button>
+
+                        <button style="visibility:hidden" class="deleteFriend" user-id="${user._id}"> Delete</button>
                 </section>
                 `;
       });
@@ -96,8 +104,8 @@ function displayNonFriends(value) {
           hideAddButton(evt);
           showDeleteButton(evt);
           await AddFriendOfUser(evt);
-          displayNonFriends(value);
-          displayFriends(value);
+          displayNonFriends();
+          displayFriends();
         };
       });
     })
@@ -126,8 +134,9 @@ async function AddFriendOfUser(evt) {
   }
 }
 
+
 function hideDeleteButton(evt) {
-  evt.target.style.display = "none";
+  evt.target.style.visibility = "hidden";
 }
 
 function showAddButton(evt) {
@@ -135,13 +144,13 @@ function showAddButton(evt) {
   const id = evt.target.getAttribute("user-id");
   allDeleteButtons.forEach((btn) => {
     if (btn.getAttribute("user-id") === id) {
-      btn.style.display = "block";
+      btn.style.visibility = "visible";
     }
   });
 }
 
 function hideAddButton(evt) {
-  evt.target.style.display = "none";
+  evt.target.style.visibility = "hidden";
 }
 
 function showDeleteButton(evt) {
@@ -149,7 +158,7 @@ function showDeleteButton(evt) {
   const id = evt.target.getAttribute("user-id");
   allAddButtons.forEach((btn) => {
     if (btn.getAttribute("user-id") === id) {
-      btn.style.display = "block";
+      btn.style.visibility = "visible";
     }
   });
 }

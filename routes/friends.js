@@ -51,11 +51,13 @@ router.get("/friends/api", async function (req, res) {
 router.post("/api/delete", async function (req, res) {
   console.log(req.body);
   try {
+    const updatedUser = await UserModel.findOneAndUpdate(
+      { _id: req.session.currentUser._id },
+      { $pull: { friends: req.body.id } }, { new: true }
+    )
+    req.session.currentUser = updatedUser
     res.json(
-      await UserModel.findOneAndUpdate(
-        { _id: req.session.currentUser._id },
-        { $pull: { friends: req.body.id } }
-      )
+      updatedUser
     );
   } catch (err) {
     res.status(500).json(err.message);
@@ -100,11 +102,13 @@ router.get("/search/api", async (req, res, next) => {
 router.post("/api/add", async function (req, res) {
   console.log(req.body);
   try {
+    const updatedUser = await UserModel.findOneAndUpdate(
+      { _id: req.session.currentUser._id },
+      { $push: { friends: req.body.id } }, { new: true }
+    )
+    req.session.currentUser = updatedUser
     res.json(
-      await UserModel.findOneAndUpdate(
-        { _id: req.session.currentUser._id },
-        { $push: { friends: req.body.id } }
-      )
+      updatedUser
     );
   } catch (err) {
     res.status(500).json(err.message);

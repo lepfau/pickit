@@ -50,7 +50,9 @@ router.get("/:id", async (req, res) => {
 });
 
 router.get("/update/:id", async (req, res) => {
-  const item = await ItemModel.findById(req.params.id);
+  const item = await ItemModel.findById(req.params.id)
+  // const itempop = await ItemModel.findById(req.params.id).populate("category")
+  // console.log(item, itempop)
   const itemCategory = await CategoryModel.findById(item.category);
   const categories = await CategoryModel.find();
   try {
@@ -98,6 +100,7 @@ router.post("/create", uploader.single("image"), async (req, res) => {
 router.post("/update/:id", uploader.single("image"), async (req, res, next) => {
   try {
     const itemToUpdate = { ...req.body };
+    console.log(itemToUpdate)
     if (req.file) itemToUpdate.image = req.file.path;
     const categoryId = await CategoryModel.findOne({
       name: itemToUpdate.category,
@@ -109,7 +112,7 @@ router.post("/update/:id", uploader.single("image"), async (req, res, next) => {
     res.redirect("/items");
 
   } catch (err) {
-    next(err);
+    console.log(err);
   }
 });
 
