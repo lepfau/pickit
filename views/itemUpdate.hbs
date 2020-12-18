@@ -1,4 +1,3 @@
-
 {{> nav_bar}}
 
 <form method="POST" action="/items/update/{{item._id}}" enctype="multipart/form-data" class="form-update">
@@ -23,7 +22,7 @@
             <label for="category">Category <i class="fas fa-box-open"></i></label>
             <select id="" name="category">
                 {{#if itemcat}}
-                <option value="-1" disabled selected>{{itemcat.name}}</option>
+                <option value="{{itemcat.name}}" selected>{{itemcat.name}}</option>
                 {{else}}
                 <option value="-1" disabled selected>Choose a category...</option>
                 {{/if}}

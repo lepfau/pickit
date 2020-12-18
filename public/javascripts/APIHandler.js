@@ -29,7 +29,7 @@ class APIHandler {
   }
 
   //FRIEND PART
-  getFriends(searchValue) {
+  getFriends(searchValue = "") {
     return this.service.get("/friends/friends/api", {
       params: {
         search: searchValue
@@ -37,7 +37,7 @@ class APIHandler {
     });
   }
 
-  getNonFriends(searchValue) {
+  getNonFriends(searchValue = "") {
     return this.service.get("/friends/nonfriends/api", {
       params: {
         search: searchValue
