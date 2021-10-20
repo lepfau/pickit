@@ -11,9 +11,12 @@
     "seed:user": "node ./bin/seed.user"
   },
   "dependencies": {
+    "@heroku/buildpack-registry": "^1.0.1",
+    "async-file": "^2.0.2",
     "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
+    "cli-ux": "^5.6.3",
     "cloudinary": "^1.23.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
@@ -22,6 +25,7 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.3",
     "express-session": "^1.17.1",
+    "got": "^11.8.2",
     "hbs": "^4.0.1",
     "heroku": "^7.59.0",
     "http-errors": "^1.8.0",
@@ -31,6 +35,7 @@
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^6.4.17",
+    "phoenix": "^1.6.2",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
