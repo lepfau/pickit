@@ -2,9 +2,12 @@
   "name": "pickit",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "16.9.1"
+  },
   "scripts": {
     "start": "nodemon ./bin/www",
-    "dev": "DEBUG=pickit:* nodemon ./bin/www",
+    "dev": "node ./bin/www",
     "server": "nodemon ./bin/www -e .hbs,.js",
     "seed:category": "node ./bin/seed.category",
     "seed:item": "node ./bin/seed.item",
