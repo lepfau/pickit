@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=pickit:* nodemon ./bin/www",
+    "start": "nodemon ./bin/www",
     "dev": "DEBUG=pickit:* nodemon ./bin/www",
     "server": "nodemon ./bin/www -e .hbs,.js",
     "seed:category": "node ./bin/seed.category",
@@ -11,6 +11,7 @@
     "seed:user": "node ./bin/seed.user"
   },
   "dependencies": {
+    "@heroku-cli/plugin-buildpacks": "^7.54.0",
     "@heroku/buildpack-registry": "^1.0.1",
     "async-file": "^2.0.2",
     "axios": "^0.21.0",
@@ -39,6 +40,6 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "nodemon": "^2.0.7"
   }
 }
