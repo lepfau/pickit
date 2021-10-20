@@ -6,7 +6,7 @@
     "node": "16.9.1"
   },
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "dev": "node ./bin/www",
     "server": "nodemon ./bin/www -e .hbs,.js",
     "seed:category": "node ./bin/seed.category",
