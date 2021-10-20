@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "DEBUG=pickit:* nodemon ./bin/www",
     "dev": "DEBUG=pickit:* nodemon ./bin/www",
     "server": "nodemon ./bin/www -e .hbs,.js",
     "seed:category": "node ./bin/seed.category",
@@ -23,7 +23,7 @@
     "express": "^4.16.3",
     "express-session": "^1.17.1",
     "hbs": "^4.0.1",
-    "heroku": "^7.47.6",
+    "heroku": "^7.59.0",
     "http-errors": "^1.8.0",
     "moment": "^2.29.1",
     "mongoose": "^5.2.10",
