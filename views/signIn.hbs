@@ -1,12 +1,24 @@
 {{> flashMessage}}
+<nav class="navbar">
+
+</nav>
+<h1 class="title-home"><i class="fas fa-store homelogo"></i>Pickit!</h1>
 <form method="post" action="/signin" class="form-signin">
     <h2 class="subtitle"> Sign in to your account</h1>
-        <label for="email"></label>
+    <div class="signin-inputs">
+    <div class="inputlabel">
+ 
         <input name="email" type="text" value="" placeholder="enter your email...">
-        <label for="password"></label>
+        </div>
+        
+        <div class="inputlabel">
+ 
         <input name="password" type="password" value="" placeholder="password">
-
-        <button class="btn-log">Sign in</button>
+</div>
+</div>
+<button class="btn-login">
+        <a class="btn-log">Sign in</a>
+        </button>
         <hr>
 
         <p>

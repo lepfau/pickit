@@ -15,15 +15,29 @@ body {
   position: relative;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100vw;
-  height: 10px;
-  font-size: 10px;
-  /* bottom: -120px;
-  left: 20px;
-  height: 2.5rem; */
+.inputbuttonmail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-background {
+  background-image: url(../images/doodles.png);
+  background-size: contain;
+  height: 80%;
+  display: flex;
+  height: 45vh;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.fullcard {
+  display: flex;
+}
+
+.fas {
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .navbar a {
@@ -52,7 +66,7 @@ body {
 
 a {
   color: black;
-  font-size: 4vh;
+  font-size: 16px;
   padding: 10px;
   text-decoration: none;
 }
@@ -62,7 +76,7 @@ a {
 }
 
 .navbar {
-  background-color: #133d51;
+  background-color: #165e92;
   width: 100%;
   height: 50px;
   display: flex;
@@ -80,20 +94,20 @@ a {
 }
 
 .title-home {
-  font-size: 8vh;
+  font-size: 10vh;
   text-align: center;
   color: #0b2027;
   padding-bottom: 10px;
   margin-top: 30px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   font-family: Fredoka One;
 }
 
 .subtitle {
-  font-size: 6vh;
+  font-size: 3.5vh;
   text-align: center;
   color: #70a9a1;
-  margin: 0;
+ margin-bottom: 15px;
   font-family: Permanent Marker;
 }
 
@@ -105,26 +119,47 @@ a {
   margin: 5px;
 }
 
+.signin-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.inputlabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btns-home {
   display: flex;
   justify-content: center;
   padding-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.homefooter {
+  position: fixed;
+  font-size: 12px;
+  bottom: 5px;
+  left: 10px;
+  font-family: 'Nunito';
+  text-align: center;
 }
 
 .btn-log {
-  height: 8vh;
-  width: 24vh;
-  margin: 3vh;
+  height: 39px;
+  width: 90px;
+  margin: 15px;
   border-radius: 5px;
   background-color: #0b2027;
   font-family: Nunito;
   font-weight: 400;
-  font-size: 2.3vh;
+  font-size: 16px;
   text-align: center;
   color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -144,10 +179,45 @@ a {
   align-items: center;
 }
 
+.mailbutton {
+  padding: 11px 15px;
+    background-color: #165e92;
+    color: white;
+    /* font-family: Notino; */
+    font-size: 16px;
+    font-weight: 600;
+    height: 5vh;
+    /* width: 24vh; */
+    margin: 13px;
+    border-radius: 5px;
+    background-color: #0b2027;
+    font-family: Nunito;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    border: none;
+}
+
 .cards-home {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+}
+
+.red {
+  color: darkred;
+}
+
+.black
+{
+  color: black;
+}
+
+.nomore {
+  text-align: center;
+  margin-top: 90px;
 }
 
 .card-home {
@@ -160,12 +230,12 @@ a {
 }
 
 .cardText-home {
-  font-size: 2vh;
+  font-size: 16px;
   text-align: center;
-  background-color: #133d51;
-  height: 8vh;
+  background-color: #165e92;
+  height: 60px;
   width: 30vh;
-  margin: 5px 0px;
+  margin: 12px 0px;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -181,9 +251,9 @@ a {
   font-size: 3vh;
   text-align: center;
   background-color: #0b2027;
-  height: 8vh;
+  height: 60px;
   width: 8vh;
-  margin: 5px 0px;
+  margin: 12px 0px;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -229,41 +299,60 @@ a {
 }
 
 .form-signin input {
-  font-size: 2.8vh;
+  font-size: 16px;
   width: 250px;
-  height: 5vh;
+  height: 25px;
   margin: 20px;
-  font-size: 2vh;
+  font-size: 16px;
   font-family: Nunito;
   display: block;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  padding: 10px 10px 
+}
+
+.btn-login {
+  border: none;
 }
 
 .form-signup input {
+ 
   width: 280px;
   height: 30px;
   margin: 20px;
-  font-size: 2.5vh;
+  font-size: 16px;
   padding: 0;
+  border-radius: 15px;
   margin: 5px;
   font-family: Nunito;
+  border: none;
+  padding: 5px 10px;
+
 }
 
 label {
   padding: 0;
-  margin: 5px;
+  margin: -5px;
   font-family: Nunito;
-  font-weight: 300;
   display: block;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .form-create input {
-  width: 280px;
-  height: 30px;
-  margin: 30px;
-  font-size: 2.2vh;
-  padding: 0;
-  margin: 5px;
+  font-size: 16px;
+  width: 250px;
+  height: 18px;
+  margin: 0px;
+  font-size: 16px;
   font-family: Nunito;
+  display: block;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  padding: 10px 10px;
 }
 
 .form-update {
@@ -274,36 +363,47 @@ label {
   align-items: center;
 }
 
+
 .form-update input {
-  width: 280px;
-  height: 30px;
-  margin: 30px;
-  font-size: 2.2vh;
-  padding: 0;
-  margin: 5px;
+  font-size: 16px;
+  width: 250px;
+  height: 18px;
+  margin: 0px;
+  font-size: 16px;
   font-family: Nunito;
+  display: block;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  padding: 10px 10px;
 }
 
 select {
-  width: 280px;
-  height: 30px;
+  width: 270px;
+  height: 35px;
   margin: 20px;
-  font-size: 2.2vh;
-  padding: 0;
+  font-size: 16px;
+  padding: 5px;
   margin: 5px;
   font-family: Nunito;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
 }
 
 .fullInput {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 5px;
 }
 .fullInput img {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
   max-height: 10vh;
+  align-self: center;
+  margin-bottom: 17px;
 }
 #search-bar {
   display: flex;
@@ -319,24 +419,37 @@ select {
   height: 36px;
 }
 
+
 #allusers {
-  width: 95vw;
+  width: 95%;
+  max-width: 550px;
   margin: 0 auto;
   background: white;
   overflow-y: scroll;
   height: 65vh;
 }
 
+.emailinput {
+  height: 25px;
+  border-radius: 8px;
+  padding: 6px;
+  border: none;
+  width: 60%;
+  max-width: 500px;
+}
+
 .user-image img {
   height: 50px;
   width: 50px;
-  border-radius: 90px;
-  border: 1px solid #ddd;
+  object-fit: cover;
+  border-radius: 48%;
+  background-color: white;
+  border: 2px solid white;
 }
 
 .user-name {
   font-family: Nunito;
-  font-weight: 600;
+  font-weight: 300;
   width: 60vw;
   display: flex;
   flex-direction: column;
@@ -349,7 +462,9 @@ select {
 }
 
 #allfriends .user-card {
-  background-color: #9bc3c6;
+  background-color: #165e92;
+  color: white;
+
 }
 #nonfriends .user-card {
   background-color: lightgray;
@@ -365,8 +480,11 @@ select {
 }
 
 .user-card button {
-  font-weight: 600;
+  font-weight: 400;
   color: black;
+  border-radius: 8px;
+  padding: 7px;
+  border: none;
 }
 
 .user-card a {
@@ -379,7 +497,7 @@ select {
 
 #invite-form {
   text-align: center;
-  margin: 10px;
+  margin-top: 30px;
   margin-bottom: 11px;
 }
 
@@ -390,12 +508,22 @@ select {
 }
 .full-item-card {
   display: flex;
-  padding: 10px;
+  padding: 14px;
+  box-shadow: 1px 1px 3px #a9a9a9;
+  margin-bottom: 7px;
+  border-radius: 5px;
+  background-color: white;
+  border: none;
+  width: 90%;
+  height: 130px;
 }
 
 .full-item-card a {
   font-size: 1em;
   padding: 0px;
+}
+.homelogo {
+  font-size: 10vh;
 }
 
 .full-item-card img {
@@ -404,9 +532,10 @@ select {
 }
 
 .item-brand {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0px;
+  ;
 }
 
 .item-name {
@@ -416,9 +545,10 @@ select {
 }
 
 .item-price {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   margin: 0px;
+
 }
 
 .see-more-link {
@@ -461,7 +591,9 @@ select {
 #roulette-image {
   max-height: 45vh;
   max-width: 90vw;
-  border: 1px solid lightgrey;
+
+  border-radius: 8px;
+  margin-top: 15px;
 }
 
 #roulettte-item-user-name {
@@ -470,9 +602,10 @@ select {
 }
 
 #roulette-brand {
-  font-size: 2.5rem;
+  font-size: 16px;
   font-weight: bold;
-  text-align: center;
+  align-self: flex-start;
+  
 }
 #roulette-price {
   font-size: 2rem;
@@ -480,9 +613,14 @@ select {
   text-align: center;
 }
 
+.likes-dislike {
+  width: 59px;
+  display: flex;
+  justify-content: space-between;
+}
+
 #like-btn {
-  font-size: 8vh;
-  padding-left: 40px;
+
   color: darkred;
 }
 #like-btn:active {
@@ -490,8 +628,8 @@ select {
 }
 
 #dislike-btn {
-  font-size: 8vh;
-  padding-right: 40px;
+
+
 }
 #dislike-btn:active {
   transform: translate(5px, 5px);
@@ -501,13 +639,32 @@ select {
   box-sizing: border-box;
   height: 80%;
   margin: 5px;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.bold {
+  font-weight: 800;
+}
+
+.roulette-btns-container {
+  border: 3px solid #d65c32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 115px;
+    width: 115px;
+    border-radius: 50%;
+}
+
 .roulette-btns {
   display: flex;
+  margin-top: 50px;
+  align-items: center;
+  justify-content: space-around;
+  width: 320px;
 }
 
 .link a {
@@ -536,18 +693,17 @@ select {
 
 #item-list-all {
   width: 95%;
-  margin: 10px;
-  background: white;
-  overflow-y: scroll;
+  margin: 10px;  overflow-y: scroll;
   height: 75vh;
 }
 .item-image {
-  width: 25%;
+
   display: flex;
   align-items: center;
 }
 .item-image img {
   width: 90%;
+  max-width: 185px
 }
 .brand-price {
   display: flex;
@@ -556,6 +712,7 @@ select {
 .bottom-icons {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
 .all-item-info {
   width: 75%;
@@ -571,8 +728,13 @@ hr {
 }
 
 #item-create {
-  color: darkgrey;
+
   padding: 0px;
+  /* width: 105px; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 150px;
 }
 
 #item-page {
@@ -591,7 +753,7 @@ hr {
 #one-item-header a,
 #one-item-footer {
   font-size: 1.2em;
-  font-style: italic;
+ 
 }
 #one-item-footer {
   font-size: 1.2em;
@@ -600,46 +762,91 @@ hr {
 }
 
 #roulettte-item-user-image {
-  width: 40px;
-  height: 40px;
-  border-radius: 90px;
-  margin-left: 15px;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 48%;
+  background-color: white;
+  border: 2px solid white;
 }
 
 #roulette-name {
   font-size: 18px;
-  margin: 10px;
+  margin: 0;
+
 }
 .roulette-friend {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  margin: 10px;
+  justify-content: space-evenly;
+  margin: 30px;
+  width: 305px;
 }
 
 #roulette-brand {
-  font-size: 28px;
+  font-size: 16px;
   margin: 0px;
 }
 
 #roulette-price {
-  font-size: 28px;
+  font-size: 25px;
   margin: 0px;
   font-weight: bold;
+}
+
+#roulette-div {
+  display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+ 
+}
+
+.big {
+  font-size: 60px;
 }
 
 .roulette-item-info {
   display: flex;
   justify-content: space-between;
-  width: 90vw;
+  width: 100%;
+  margin-top: 20px;
+  align-items: flex-end;
 }
 
 #roulette-link {
-  background: #133d51;
-  color: white;
-  border-radius: 10px;
-  box-shadow: 5px 2px 2px gray;
+margin: 0;
+  font-size: 16px;
+  color: grey;
+ 
+}
+
+.hrroulette {
+  margin-top: 5px;
+width: 100%;
+  margin-bottom: 10px;
+  color: grey;
+}
+
+#roulette-description {
+  margin: 0;
+  color: grey
+}
+
+.roulettemid{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 575px;
+}
+
+.searchtop {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  max-width: 300px;
 }
 
 .searchinput {
@@ -647,6 +854,11 @@ hr {
   align-items: center;
   justify-content: center;
   height: 25px;
+  border-radius: 8px;
+  padding: 6px;
+  border: none;
+  width: 80%;
+  max-width: 500px;
 }
 
 .search {

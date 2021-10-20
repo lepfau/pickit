@@ -11,7 +11,7 @@ const roulettePrice = document.getElementById("roulette-price");
 const rouletteName = document.getElementById("roulette-name");
 const rouletteImage = document.getElementById("roulette-image");
 const rouletteLink = document.getElementById("roulette-link");
-
+const rouletteDescription = document.getElementById("roulette-description")
 const likeBtn = document.getElementById("like-btn");
 const dislikeBtn = document.getElementById("dislike-btn");
 
@@ -31,11 +31,12 @@ function renderRoulette() {
         const user = respfromAPI.data.user;
         rouletteItemUser.innerHTML = `Like it for <strong>${user.firstName}</strong>?`;
         rouletteItemUserImage.src = user.image;
-        rouletteBrand.innerHTML = `${item.brand}`;
+        rouletteDescription.innerHTML = `€${item.description}`
+  
         roulettePrice.innerHTML = `€${item.price}`;
-        rouletteName.innerHTML = `${item.name}`;
+        rouletteName.innerHTML = `${item.name} (${item.brand})`;
         rouletteImage.src = `${item.image}`;
-        rouletteLink.href = `${item.link}`;
+        rouletteLink.innerHTML = `${item.link}`;
         likeBtn.setAttribute("item-id", `${item._id}`);
         dislikeBtn.setAttribute("item-id", `${item._id}`);
         likeBtn.href = `/roulette/like/${item._id}`;

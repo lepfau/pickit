@@ -7,26 +7,30 @@
         <img id="roulettte-item-user-image" src="{{user.image}}" alt="">
     </div>
 
-    <hr>
-
+ <img id="roulette-image" src="{{image}}" alt="">
     <div class="roulette-items">
+        <div class="roulettemid">
         <div class="roulette-item-info">
-            <p id="roulette-brand">{{brand}}</p>
-            <p id="roulette-price">€{{price}} </p>
+            <p id="roulette-name">{{name}}</p>
+            <p id="roulette-price">{{price}}€ </p>
         </div>
+        <hr class="hrroulette">
+<p id="roulette-description">{{description}}</p>
+        <p id="roulette-link">{{link}}</p>
+    </div>
 
-        <p id="roulette-name">{{name}}</p>
 
-        <img id="roulette-image" src="{{image}}" alt="">
 
         <div class="roulette-btns">
-            <a id="dislike-btn" href="/roulette/dislike/{{_id}}"><i class="fas fa-thumbs-down"></i></a>
+            <div class="roulette-btns-container">
+            <a id="dislike-btn" href="/roulette/dislike/{{_id}}" class="big bold">X</a>
+</div>
+<div class="roulette-btns-container">
+            <a id="like-btn" href="roulette/like/{{_id}}"><i class="fas fa-heart big"></i></a>
+       </div>
 
-            <a id="like-btn" href="roulette/like/{{_id}}"><i class="fas fa-heart"></i></a>
         </div>
     </div>
-    <div class="link">
-        <a id="roulette-link" href="{{link}}" target="_blank">Go to retailer website</a>
-    </div>
+
     </div>
 </section>

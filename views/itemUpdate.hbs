@@ -20,7 +20,7 @@
 
         <div class="fullInput">
             <label for="category">Category <i class="fas fa-box-open"></i></label>
-            <select id="" name="category">
+            <select id="" name="category" >
                 {{#if itemcat}}
                 <option value="{{itemcat.name}}" selected>{{itemcat.name}}</option>
                 {{else}}
@@ -48,6 +48,8 @@
             <label for="image">Update image <i class="fas fa-cloud-upload-alt"></i></label>
             <input type="file" name="image">
         </div>
-        <button class="btn-log">Update!</button>
-
+        <button class="btn-login">
+        <a class="btn-log">Update</a>
+        </button>
+      
 </form>

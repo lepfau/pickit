@@ -1,9 +1,11 @@
 <form id="invite-form" action="/send-email" method="post">
-  <label for="">Invite a friend by submitting their email below </label>
-  <input type="email" name="email" id="">
+  <label for="">Invite a friend </label>
+  <div class="inputbuttonmail">
+  <input  class="emailinput" type="email" name="email" id="">
   {{!-- <label for="">Subject</label>
   <input type="text" name="subject" id="">
   <label for="">Message</label> --}}
   {{!-- <textarea type="text" name="message" id=""></textarea> --}}
-  <button type="submit">Send !</button>
+  <button class="mailbutton" type="submit">Send !</button>
+  </div>
 </form>

@@ -1,5 +1,4 @@
 const itemsApi = new APIHandler();
-
 const fullItemList = document.getElementById("item-list-all");
 
 // async function getAllItems(callback) {
@@ -31,15 +30,15 @@ function displayItems() {
           </div>
           <div class="all-item-info">
             <div class="item brand-price">
-                  <div class="item-brand">${item.brand} </div>
+                  <div class="item-brand">${item.name} </div>
                   <div class="item-price"> €${item.price}</div>
             </div>          
-            <p class="item-name">${item.name} </p>
+            <p class="item-name">${item.brand} </p>
             <p class ="see-more-link"> <a href="/items/${item._id}">Click for item details</a> </p>
               
             <div class="bottom-icons">
               <div class="likes-dislike"> 
-                <i class="fas fa-heart"><br><span>${item.likes.length}</span></i>
+                <i class="fas fa-heart red"><br><span class="black">${item.likes.length}</span></i>
                 <i class="fas fa-thumbs-down"><br><span>${item.dislikes.length}</span></i>
               </div>  
               <div class="update-trash"> 
@@ -49,7 +48,7 @@ function displayItems() {
             </div>
           </div>  
         </div>
-        <hr>
+      
         `;
       });
       const deleteButton = document.querySelectorAll(".delete-btn");

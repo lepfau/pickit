@@ -41,8 +41,8 @@ function displayFriends(value) {
                     <section class="user-card">
                     <div class="user-name">
                         <p>${user.firstName} ${user.lastName}</p>
-                        <button style="display:none" class="addFriend" user-id="${user._id}">As as friend</button>
-                        <button style="display:block" class="deleteFriend" user-id="${user._id}"> Remove from friends</button>
+                        <button style="display:none" class="addFriend" user-id="${user._id}">A</button>
+                        <button style="display:block" class="deleteFriend" user-id="${user._id}"> Remove</button>
                     </div>
                     <div class="user-image">
                         <img src="${user.image}" alt="${user.firstName} ${user.lastName}">

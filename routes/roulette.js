@@ -34,7 +34,7 @@ router.get("/api", async function (req, res) {
   if (!rouletteItem) {
     rouletteInput = {
       message: `
-        <h1>No more items to judge! Add some more friends!</h1>`,
+        <h1 class="nomore">No more items to judge! Add some more friends!</h1>`,
     };
   } else {
     const rouletteItemUser = await UserModel.findById(rouletteItem.user);
