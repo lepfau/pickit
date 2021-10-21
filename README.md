@@ -16,7 +16,7 @@
 
 This app is a group project at IronHack Bootcamp;
 It was meant to train us about routing, nodejs, handlebars templating and axios;
-You can find the deployed version [@here](https://iron-hack-project-2.herokuapp.com/)
+You can find the deployed version [@here](https://pickitapp.herokuapp.com/)
 
 ## Screenshots
 
