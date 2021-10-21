@@ -705,8 +705,10 @@ select {
   align-items: center;
 }
 .item-image img {
-  width: 90%;
-  max-width: 185px
+  width: 96px;
+  margin-right: 17px;
+  height: 131px;
+  object-fit: cover;
 }
 .brand-price {
   display: flex;
