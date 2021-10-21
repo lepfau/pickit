@@ -39,7 +39,7 @@ You can find the deployed version [@here](https://pickitapp.herokuapp.com/)
 
 List of features ready and TODOs for future development
 
-- Likes and dislikes on items
+- Random roulette for likes and dislikes of items
 - Friends system
 - Mobile design
 
