@@ -31,12 +31,12 @@ function renderRoulette() {
         const user = respfromAPI.data.user;
         rouletteItemUser.innerHTML = `Like it for <strong>${user.firstName}</strong>?`;
         rouletteItemUserImage.src = user.image;
-        rouletteDescription.innerHTML = `€${item.description}`
+        rouletteDescription.innerHTML = `${item.description}`
   
-        roulettePrice.innerHTML = `€${item.price}`;
+        roulettePrice.innerHTML = `${item.price}€`;
         rouletteName.innerHTML = `${item.name} (${item.brand})`;
         rouletteImage.src = `${item.image}`;
-        rouletteLink.innerHTML = `${item.link}`;
+        rouletteLink.href = `${item.link}`;
         likeBtn.setAttribute("item-id", `${item._id}`);
         dislikeBtn.setAttribute("item-id", `${item._id}`);
         likeBtn.href = `/roulette/like/${item._id}`;
