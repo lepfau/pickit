@@ -41,7 +41,7 @@ List of features ready and TODOs for future development
 
 - Random roulette for likes and dislikes of items
 - Friends system
-- Mobile design
+- Responsive
 
 ## Status
 
