@@ -20,8 +20,10 @@ You can find the deployed version [@here](https://iron-hack-project-2.herokuapp.
 
 ## Screenshots
 
-![App screenshot](./public/pickit.gif)
-
+![App screenshot1](./public/pickit1.png)
+![App screenshot2](./public/pickit2.png)
+![App screenshot3](./public/pickit3.png)
+![App screenshot4](./public/pickit4.png)
 ## Technologies
 
 - Axios - version 0.19.2
